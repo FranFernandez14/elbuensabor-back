@@ -15,11 +15,13 @@ import java.util.List;
 @Getter
 @Setter
 @ToString
+@Builder
 public class Receta extends Base {
 
     @NotNull
-    @OneToMany(mappedBy = "id_producto")
-    private List<DetalleReceta> receta = new ArrayList();
+    @OneToMany(mappedBy = "receta")
+    @Builder. Default
+    private List<DetalleReceta> detalles = new ArrayList();
 
     @NotNull
     @OneToOne

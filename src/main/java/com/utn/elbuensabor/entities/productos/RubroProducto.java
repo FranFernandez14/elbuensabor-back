@@ -4,10 +4,8 @@ import com.utn.elbuensabor.entities.Base;
 import com.utn.elbuensabor.entities.enums.TipoRubro;
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.*;
 
@@ -17,10 +15,21 @@ import java.util.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class RubroProducto extends Rubro {
+@Builder
+public class RubroProducto extends Base {
 
-    @OneToMany(mappedBy = "id_rubro_producto", cascade = CascadeType.REFRESH)
+
+    @OneToMany(mappedBy = "rubroProducto", cascade = CascadeType.REFRESH)
+    @Builder.Default
     private List<Producto> productos = new ArrayList();
 
+    @ManyToOne()
+    @JoinColumn(name = "id_rubro_padre")
+    private RubroProducto rubroPadre;
 
+    @OneToMany(mappedBy = "rubroPadre")
+    private List<RubroProducto> subRubro;
+
+    @NotNull
+    private String denominacion;
 }

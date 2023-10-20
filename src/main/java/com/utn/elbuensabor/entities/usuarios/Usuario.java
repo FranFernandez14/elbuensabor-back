@@ -5,10 +5,7 @@ import com.utn.elbuensabor.entities.enums.Rol;
 import com.utn.elbuensabor.entities.pedidos.Pedido;
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.ArrayList;
@@ -21,6 +18,7 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "usuario")
+@Builder
 public class Usuario extends Base {
 
     @NotNull
@@ -47,10 +45,12 @@ public class Usuario extends Base {
     @Column(name = "telefono", nullable = false)
     private String telefono;
 
-    @OneToMany (mappedBy = "id_usuario", cascade = CascadeType.ALL)
+    @OneToMany (mappedBy = "usuario", cascade = CascadeType.ALL)
+    @Builder. Default
     private List<Domicilio> domicilios = new ArrayList<>();
 
-    @OneToMany (mappedBy = "id_usuario", cascade = CascadeType.ALL)
+    @OneToMany (mappedBy = "cliente", cascade = CascadeType.ALL)
+    @Builder. Default
     private List<Pedido> pedidos = new ArrayList<>();
 
 }

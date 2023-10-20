@@ -1,13 +1,8 @@
 package com.utn.elbuensabor.entities.productos;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.utn.elbuensabor.entities.Base;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +13,21 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-public class RubroInsumo extends Rubro{
+@Builder
+public class RubroInsumo extends Base {
 
-    @OneToMany(mappedBy = "id_rubro_insumo", cascade = CascadeType.REFRESH)
+    @ManyToOne()
+    @JoinColumn(name = "id_rubro_padre")
+    private RubroInsumo rubroPadre;
+
+
+    @OneToMany(mappedBy = "rubroPadre")
+    @Builder. Default
+    private List<RubroInsumo> subRubro=new ArrayList<>();
+
+
+    @OneToMany(mappedBy = "rubroInsumo", cascade = CascadeType.REFRESH)
+    @Builder. Default
     private List<Insumo> insumos = new ArrayList();
 
 

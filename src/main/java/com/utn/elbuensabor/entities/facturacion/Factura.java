@@ -5,13 +5,11 @@ import com.utn.elbuensabor.entities.enums.FormaPago;
 import com.utn.elbuensabor.entities.pedidos.Pedido;
 import jakarta.persistence.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -20,6 +18,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Factura extends Base {
 
     @NotNull

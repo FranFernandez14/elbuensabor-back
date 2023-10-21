@@ -22,7 +22,7 @@ Para todas las entidades, se provee los siguientes métodos de acceso a la base 
   * contrasenaActual: contraseña actual del usuario, a cambiar
   * contrasenaNueva: nueva contraseña del usuario
 
-* PUT `/cambiarDatos`: cambiar datos generales del usuario. Argumentos:
+* PUT `/cambiarDatos`: cambiar datos generales del usuario. Cuerpo:
     * id
     * nombre
     * apellido
@@ -31,6 +31,12 @@ Para todas las entidades, se provee los siguientes métodos de acceso a la base 
     * email
     * direccion
 
+* GET `ranking`: devuelve una lista de clientes. Cuerpo:
+  * fechaDesde
+  * fechaHasta
+  * ordenarPor: "nombre" | "pedidos" | "monto"
+
+
 ### Producto
 
 * GET `porRubro/{denominacion}`: devuelve todos los productos de un cierto RubroProducto.
@@ -38,8 +44,32 @@ Para todas las entidades, se provee los siguientes métodos de acceso a la base 
 * GET `buscar`: devuelve los productos encontrados según su nombre. Argumentos:
   * s: cadena a buscar
 
+* GET `ranking`: devuelve los productos más vendidos. Cuerpo:
+  * fechaDesde
+  * fechaHasta
+  * rubros: arreglo con denominaciones de RubroProductos
+
 ### Pedido
+
+* GET `estado`: devuelve todos los pedidos en cierto estado. Argumentos:
+  * estado
 
 * PUT `estado`: actualiza el estado de un pedido. Argumentos:
   * id: id del pedido
   * estado: el nuevo estado que se le colocará
+
+* GET `buscar`: devuelve los pedidos encontrados según su id y filtros. Cuerpo:
+  * id: número contenido en la id
+  * estados: arreglo con los posibles estados de los pedidos
+
+
+### Insumo
+
+* GET `stockBajo`: devuelve los insumos que se consideran bajos de stock.
+
+
+### Factura
+
+* GET `movimientos`: calcula, a partir de las facturas y notas de crédito, los ingresos, costos y ganancias en un cierto período. Argumentos:
+  * fechaDesde
+  * fechaHasta

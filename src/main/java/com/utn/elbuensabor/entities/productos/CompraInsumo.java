@@ -2,12 +2,11 @@ package com.utn.elbuensabor.entities.productos;
 
 
 import com.utn.elbuensabor.entities.Base;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 @Entity
@@ -22,4 +21,13 @@ public class CompraInsumo extends Base {
     @OneToMany(mappedBy = "compraInsumo", cascade = CascadeType.ALL)
     @Builder. Default
     List<DetalleCompra> detalles = new ArrayList();
+
+    @NotNull
+    @Column(name = "total_compra", precision = 10, scale = 2)
+    private BigDecimal totalCompra;
+
+    @NotNull
+    @Column(name = "fecha_compra")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date fechaCompra;
 }

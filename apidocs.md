@@ -29,7 +29,6 @@ Para todas las entidades, se provee los siguientes métodos de acceso a la base 
     * telefono
     * rol
     * email
-    * direccion
 
 * GET `ranking`: devuelve una lista de clientes. Cuerpo:
   * fechaDesde
@@ -51,12 +50,10 @@ Para todas las entidades, se provee los siguientes métodos de acceso a la base 
 
 ### Pedido
 
-* GET `estado`: devuelve todos los pedidos en cierto estado. Argumentos:
-  * estado
-
 * PUT `estado`: actualiza el estado de un pedido. Argumentos:
   * id: id del pedido
   * estado: el nuevo estado que se le colocará
+
 
 * GET `buscar`: devuelve los pedidos encontrados según su id y filtros. Cuerpo:
   * id: número contenido en la id
@@ -70,6 +67,18 @@ Para todas las entidades, se provee los siguientes métodos de acceso a la base 
 
 ### Factura
 
-* GET `movimientos`: calcula, a partir de las facturas y notas de crédito, los ingresos, costos y ganancias en un cierto período. Argumentos:
+* GET `movimientos`: calcula, a partir de las facturas, los ingresos en un cierto período. Argumentos:
+  * fechaDesde
+  * fechaHasta
+
+### NotaCredito
+
+* GET `movimientos`: calcula, a partir de las notas de crédito, los egresos en un cierto período. Argumentos:
+  * fechaDesde
+  * fechaHasta
+
+### CompraInsumo
+
+GET `movimientos`: calcula, a partir de las compras de insumos, los egresos en un cierto período. Argumentos:
   * fechaDesde
   * fechaHasta

@@ -22,7 +22,7 @@ public class RubroProductoServiceImpl extends BaseServiceImpl<RubroProducto, Lon
         super(baseRepository);
         this.rubroProductoRepository = rubroProductoRepository;
     }
-    public List<RubroProducto> search(String filtro) throws Exception {
+    /*public List<RubroProducto> search(String filtro) throws Exception {
         try {
             List<RubroProducto> rubroProductos = rubroProductoRepository.search(filtro);
             return rubroProductos;
@@ -45,5 +45,5 @@ public class RubroProductoServiceImpl extends BaseServiceImpl<RubroProducto, Lon
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
-    }
+    }*/
 }

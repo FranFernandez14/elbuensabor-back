@@ -1,17 +1,18 @@
-package com.utn.elbuensabor.controllers;
+package com.utn.elbuensabor.controllers.FacturacionController;
 
+import com.utn.elbuensabor.controllers.BaseControllerImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.utn.elbuensabor.entities.facturacion.DetalleFactura;
-import com.utn.elbuensabor.services.DetalleFacturaServiceImpl;
+import com.utn.elbuensabor.services.facturacion.DetalleFacturaServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "api/v1/detalleFacturas")
-public class DetalleFacturaController extends BaseControllerImpl<DetalleFactura,DetalleFacturaServiceImpl>{
-    @GetMapping("/search")
+@RequestMapping(path = "api/v1/detalleFactura")
+public class DetalleFacturaController extends BaseControllerImpl<DetalleFactura,DetalleFacturaServiceImpl> {
+    /*@GetMapping("/search")
     public ResponseEntity<?> search(@RequestParam String filtro) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro));
@@ -27,6 +28,6 @@ public class DetalleFacturaController extends BaseControllerImpl<DetalleFactura,
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
-    }
+    }*/
 
 }

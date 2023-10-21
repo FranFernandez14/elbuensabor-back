@@ -22,7 +22,7 @@ public class UnidadMedidaServiceImpl extends BaseServiceImpl<UnidadMedida, Long>
         super(baseRepository);
         this.unidadMedidaRepository = unidadMedidaRepository;
     }
-    public List<UnidadMedida> search(String filtro) throws Exception {
+    /*public List<UnidadMedida> search(String filtro) throws Exception {
         try {
             List<UnidadMedida> unidadMedidas = unidadMedidaRepository.search(filtro);
             return unidadMedidas;
@@ -45,5 +45,5 @@ public class UnidadMedidaServiceImpl extends BaseServiceImpl<UnidadMedida, Long>
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
-    }
+    }*/
 }

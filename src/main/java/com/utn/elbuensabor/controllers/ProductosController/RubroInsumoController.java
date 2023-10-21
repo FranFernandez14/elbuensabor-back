@@ -1,17 +1,18 @@
-package com.utn.elbuensabor.controllers;
+package com.utn.elbuensabor.controllers.ProductosController;
 
+import com.utn.elbuensabor.controllers.BaseControllerImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.utn.elbuensabor.entities.productos.RubroInsumo;
-import com.utn.elbuensabor.services.RubroInsumoServiceImpl;
+import com.utn.elbuensabor.services.productos.RubroInsumoServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "api/v1/detalleFacturas")
-public class RubroInsumoController extends BaseControllerImpl<RubroInsumo,RubroInsumoServiceImpl>{
-    @GetMapping("/search")
+@RequestMapping(path = "api/v1/rubroInsumo")
+public class RubroInsumoController extends BaseControllerImpl<RubroInsumo,RubroInsumoServiceImpl> {
+    /*@GetMapping("/search")
     public ResponseEntity<?> search(@RequestParam String filtro) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro));
@@ -27,5 +28,5 @@ public class RubroInsumoController extends BaseControllerImpl<RubroInsumo,RubroI
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
-    }
+    }*/
 }

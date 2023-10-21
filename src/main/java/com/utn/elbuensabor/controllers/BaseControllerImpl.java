@@ -2,6 +2,7 @@ package com.utn.elbuensabor.controllers;
 
 
 import com.utn.elbuensabor.entities.Base;
+import com.utn.elbuensabor.services.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;

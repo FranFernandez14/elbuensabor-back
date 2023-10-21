@@ -1,17 +1,18 @@
-package com.utn.elbuensabor.controllers;
+package com.utn.elbuensabor.controllers.UsuariosController;
 
+import com.utn.elbuensabor.controllers.BaseControllerImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import utn.elbuensabor.entities.usuarios.Usuario;
-import utn.elbuensabor.services.UsuarioServiceImpl;
+import com.utn.elbuensabor.entities.usuarios.Usuario;
+import com.utn.elbuensabor.services.usuarios.UsuarioServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "api/v1/detalleFacturas")
-public class UsuarioController extends BaseControllerImpl<Usuario,UsuarioServiceImpl>{
-    @GetMapping("/search")
+@RequestMapping(path = "api/v1/usuario")
+public class UsuarioController extends BaseControllerImpl<Usuario,UsuarioServiceImpl> {
+    /*@GetMapping("/search")
     public ResponseEntity<?> search(@RequestParam String filtro) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro));
@@ -27,5 +28,5 @@ public class UsuarioController extends BaseControllerImpl<Usuario,UsuarioService
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
-    }
+    }*/
 }

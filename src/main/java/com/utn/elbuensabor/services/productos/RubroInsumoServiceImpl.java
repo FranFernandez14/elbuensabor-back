@@ -21,7 +21,7 @@ public class RubroInsumoServiceImpl extends BaseServiceImpl<RubroInsumo, Long> i
         super(baseRepository);
         this.rubroInsumoRepository = rubroInsumoRepository;
     }
-    public List<RubroInsumo> search(String filtro) throws Exception {
+    /*public List<RubroInsumo> search(String filtro) throws Exception {
         try {
             List<RubroInsumo> rubroInsumos = rubroInsumoRepository.search(filtro);
             return rubroInsumos;
@@ -44,5 +44,5 @@ public class RubroInsumoServiceImpl extends BaseServiceImpl<RubroInsumo, Long> i
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
-    }
+    }*/
 }

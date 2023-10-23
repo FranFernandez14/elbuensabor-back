@@ -1,9 +1,12 @@
 package com.utn.elbuensabor.controllers.UsuariosController;
 
 import com.utn.elbuensabor.controllers.BaseControllerImpl;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.utn.elbuensabor.entities.usuarios.Persona;
 import com.utn.elbuensabor.services.usuarios.PersonaServiceImpl;
+import org.springframework.data.domain.Pageable;
 
 @RestController
 @CrossOrigin(origins = "*")

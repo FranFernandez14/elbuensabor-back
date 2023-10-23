@@ -1,18 +1,18 @@
-package com.utn.elbuensabor.controllers.UsuariosController;
+package com.utn.elbuensabor.controllers.PedidosController;
 
 import com.utn.elbuensabor.controllers.BaseControllerImpl;
-import com.utn.elbuensabor.entities.usuarios.NotaCredito;
-import com.utn.elbuensabor.services.usuarios.NotaCreditoServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.utn.elbuensabor.entities.pedidos.DetallePedido;
+import com.utn.elbuensabor.services.pedidos.DetallePedidoServiceImpl;
 import org.springframework.data.domain.Pageable;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "api/v1/notasCredito")
-public class NotaCreditoController extends BaseControllerImpl<NotaCredito, NotaCreditoServiceImpl> {
-/*@GetMapping("/search")
+@RequestMapping(path = "api/v1/pedido/detallePedido")
+public class DetallePedidoController extends BaseControllerImpl<DetallePedido,DetallePedidoServiceImpl> {
+    /*@GetMapping("/search")
     public ResponseEntity<?> search(@RequestParam String filtro) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro));
@@ -29,4 +29,5 @@ public class NotaCreditoController extends BaseControllerImpl<NotaCredito, NotaC
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
     }*/
+
 }

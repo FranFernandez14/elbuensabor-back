@@ -44,7 +44,7 @@ public class Persona extends Base {
     @Column(name = "telefono", nullable = false)
     private String telefono;
 
-    @OneToMany (mappedBy = "usuario", cascade = CascadeType.ALL)
+    @OneToMany (mappedBy = "persona", cascade = CascadeType.ALL)
     @Builder. Default
     private List<Domicilio> domicilios = new ArrayList<>();
 

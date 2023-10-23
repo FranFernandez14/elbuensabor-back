@@ -15,7 +15,7 @@ public interface CompraInsumoRepository extends BaseRepository<CompraInsumo, Lon
     @Query(
             value = "SELECT SUM(totalCompra) " +
                     "FROM CompraInsumo ci " +
-                    "WHERE fechaCompra BETWEEN :inicio AND :fin"
+                    "WHERE fechaAlta BETWEEN :inicio AND :fin"
     )
     public BigDecimal movimientos(@Param("inicio") Date fechaDesde, @Param("fin") Date fechaHasta);
 

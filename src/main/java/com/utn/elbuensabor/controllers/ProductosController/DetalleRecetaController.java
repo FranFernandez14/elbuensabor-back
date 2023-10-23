@@ -10,7 +10,7 @@ import com.utn.elbuensabor.services.productos.DetalleRecetaServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "api/v1/detalleReceta")
+@RequestMapping(path = "api/v1/receta/detalleReceta")
 public class DetalleRecetaController extends BaseControllerImpl<DetalleReceta,DetalleRecetaServiceImpl> {
     /*@GetMapping("/search")
     public ResponseEntity<?> search(@RequestParam String filtro) {

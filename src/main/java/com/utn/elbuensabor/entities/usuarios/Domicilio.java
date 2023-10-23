@@ -39,8 +39,8 @@ public class Domicilio extends Base {
 
     @NotNull
     @ManyToOne()
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    @JoinColumn(name = "id_persona")
+    private Persona persona;
 
 
 }

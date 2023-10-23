@@ -10,7 +10,7 @@ import com.utn.elbuensabor.services.pedidos.PedidoEstadoServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "api/v1/pedidoEstado")
+@RequestMapping(path = "api/v1/pedido/estados")
 public class PedidoEstadoController extends BaseControllerImpl<PedidoEstado,PedidoEstadoServiceImpl> {
     /*@GetMapping("/search")
     public ResponseEntity<?> search(@RequestParam String filtro) {

@@ -26,8 +26,4 @@ public class CompraInsumo extends Base {
     @Column(name = "total_compra", precision = 10, scale = 2)
     private BigDecimal totalCompra;
 
-    @NotNull
-    @Column(name = "fecha_compra")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaCompra;
 }

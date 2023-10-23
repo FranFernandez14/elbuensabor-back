@@ -5,20 +5,16 @@ import com.utn.elbuensabor.repositories.BaseRepository;
 import com.utn.elbuensabor.repositories.usuarios.UsuarioRepository;
 import com.utn.elbuensabor.services.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UsuarioServiceImpl extends BaseServiceImpl<Usuario, Long> implements UsuarioService {
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public UsuarioServiceImpl(BaseRepository<Usuario, Long> baseRepository, UsuarioRepository usuarioRepository){
+    public UsuarioServiceImpl(BaseRepository<Usuario, Long> baseRepository, UsuarioRepository usuarioRepository) {
         super(baseRepository);
         this.usuarioRepository = usuarioRepository;
     }
-
 }

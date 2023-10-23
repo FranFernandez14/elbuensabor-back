@@ -5,7 +5,7 @@ import com.utn.elbuensabor.entities.enums.EstadoPedido;
 import com.utn.elbuensabor.entities.enums.FormaPago;
 import com.utn.elbuensabor.entities.enums.TipoEnvio;
 import com.utn.elbuensabor.entities.usuarios.Domicilio;
-import com.utn.elbuensabor.entities.usuarios.Usuario;
+import com.utn.elbuensabor.entities.usuarios.Persona;
 import jakarta.persistence.*;
 
 
@@ -69,6 +69,6 @@ public class Pedido extends Base {
     @NotNull
     @ManyToOne()
     @JoinColumn(name = "id_usuario")
-    private Usuario cliente;
+    private Persona cliente;
 
 }

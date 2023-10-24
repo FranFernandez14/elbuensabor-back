@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -20,5 +22,14 @@ public class FacturaServiceImpl extends BaseServiceImpl<Factura, Long> implement
     public FacturaServiceImpl(BaseRepository<Factura, Long> baseRepository, FacturaRepository facturaRepository) {
         super(baseRepository);
         this.facturaRepository = facturaRepository;
+    }
+    @Override
+    public BigDecimal movimientos(Date fechaDesde, Date fechaHasta) throws Exception{
+        try{
+            BigDecimal movimientos=facturaRepository.movimientos(fechaDesde,fechaHasta);
+            return movimientos;
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
     }
 }

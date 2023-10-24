@@ -1,11 +1,14 @@
 package com.utn.elbuensabor.entities.usuarios;
 
 import com.utn.elbuensabor.entities.Base;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.antlr.v4.runtime.misc.NotNull;
+
+import java.math.BigDecimal;
 
 @Entity
 @NoArgsConstructor
@@ -17,7 +20,8 @@ import lombok.*;
 public class NotaCredito extends Base {
 
     @NotNull
-    private double monto;
+    @Column(name = "total_monto", precision = 10, scale = 2)
+    private BigDecimal monto;
 
     @ManyToOne
     private Persona cliente;

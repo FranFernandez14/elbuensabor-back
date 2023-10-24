@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.List;
 
 @Repository
 public interface PersonaRepository extends BaseRepository<Persona, Long> {
@@ -17,8 +18,8 @@ public interface PersonaRepository extends BaseRepository<Persona, Long> {
     @Query(
             value = "UPDATE Persona SET password = :contrasenaNueva WHERE id = :id"
     )
-    public Persona cambiarContrasena(@Param("id") Long id,
-                                     @Param("contrasenaNueva") String contrasenaNueva);
+    public List<Persona> cambiarContrasena(@Param("id") Long id,
+                                           @Param("contrasenaNueva") String contrasenaNueva);
 
 
     @Query(
@@ -30,7 +31,7 @@ public interface PersonaRepository extends BaseRepository<Persona, Long> {
                     "email = :email " +
                     "WHERE id = :id"
     )
-    public Persona cambiarDatos(@Param("id") Long id,
+    public List<Persona> cambiarDatos(@Param("id") Long id,
                                 @Param("nombre") String nombre,
                                 @Param("apellido") String apellido,
                                 @Param("telefono") String telefono,

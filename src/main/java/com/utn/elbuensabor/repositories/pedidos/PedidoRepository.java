@@ -22,7 +22,7 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long> {
                     "SET estadoActual = :estado " +
                     "WHERE id = :id"
     )
-    public Pedido cambiarEstado(@Param("id") Long id,
+    public List<Pedido> cambiarEstado(@Param("id") Long id,
                                 @Param("estado") EstadoPedido estadoPedido);
 
     @Query(

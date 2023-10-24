@@ -21,5 +21,13 @@ public class InsumoServiceImpl extends BaseServiceImpl<Insumo, Long> implements 
         super(baseRepository);
         this.insumoRepository = insumoRepository;
     }
-
+    @Override
+    public Page<Insumo> getStockBajo(Pageable pageable) throws Exception{
+        try{
+            Page<Insumo> insumo=insumoRepository.getStockBajo(pageable);
+            return insumo;
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 }

@@ -8,26 +8,36 @@ import org.springframework.web.bind.annotation.*;
 import com.utn.elbuensabor.entities.productos.Producto;
 import com.utn.elbuensabor.services.productos.ProductoServiceImpl;
 
+import java.util.Date;
+import java.util.List;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/producto")
 public class ProductoController extends BaseControllerImpl<Producto,ProductoServiceImpl> {
-    /*@GetMapping("/search")
-    public ResponseEntity<?> search(@RequestParam String filtro) {
+    @GetMapping("/porRubro")
+    public ResponseEntity<?> search(@RequestParam String denominacion, Pageable pageable) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.porRubro(denominacion, pageable));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
     }
-
-    @GetMapping("/searchPaged")
-    public ResponseEntity<?> search(@RequestParam String filtro, Pageable pageable) {
+    @GetMapping("/buscar")
+    public ResponseEntity<?> search2(@RequestParam String denominacion, Pageable pageable) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro, pageable));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.buscar(denominacion, pageable));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
-    }*/
+    }
+    @GetMapping("/ranking")
+    public ResponseEntity<?> search(@RequestParam Date fechaInicio, Date fechaHasta, List<String> denominaciones, Pageable pageable) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.ranking(fechaInicio,fechaHasta,denominaciones, pageable));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
+        }
+    }
 
 }

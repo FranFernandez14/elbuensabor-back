@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -21,5 +22,32 @@ public class ProductoServiceImpl extends BaseServiceImpl<Producto, Long> impleme
         this.productoRepository = productoRepository;
     }
 
+    @Override
+    public Page<Producto> porRubro(String denominacion, Pageable pageable) throws Exception{
+        try{
+            Page<Producto> producto=productoRepository.porRubro(denominacion,pageable);
+            return producto;
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+    @Override
+    public Page<Producto> buscar(String denominacion, Pageable pageable) throws Exception{
+        try{
+            Page<Producto> producto=productoRepository.buscar(denominacion,pageable);
+            return producto;
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+    @Override
+    public Page<Producto> ranking(Date fechaInicio, Date fechaHasta, List<String> denominaciones, Pageable pageable) throws Exception{
+        try{
+            Page<Producto> producto=productoRepository.ranking(fechaInicio,fechaHasta,denominaciones,pageable);
+            return producto;
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 
 }

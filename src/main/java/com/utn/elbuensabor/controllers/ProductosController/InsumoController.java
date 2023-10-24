@@ -12,22 +12,14 @@ import com.utn.elbuensabor.services.productos.InsumoServiceImpl;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/insumo")
 public class InsumoController extends BaseControllerImpl<Insumo,InsumoServiceImpl> {
-    /*@GetMapping("/search")
-    public ResponseEntity<?> search(@RequestParam String filtro) {
+
+    @GetMapping("/getSotckBajo")
+    public ResponseEntity<?> search(@RequestParam Pageable pageable) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.getStockBajo(pageable));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
     }
-
-    @GetMapping("/searchPaged")
-    public ResponseEntity<?> search(@RequestParam String filtro, Pageable pageable) {
-        try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro, pageable));
-        } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
-        }
-    }*/
 
 }

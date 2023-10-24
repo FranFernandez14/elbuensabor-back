@@ -7,6 +7,9 @@ import com.utn.elbuensabor.services.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 @Service
 public class NotaCreditoServiceImpl extends BaseServiceImpl<NotaCredito, Long> implements NotaCreditoService {
 
@@ -15,5 +18,14 @@ public class NotaCreditoServiceImpl extends BaseServiceImpl<NotaCredito, Long> i
     public NotaCreditoServiceImpl(BaseRepository<NotaCredito, Long> baseRepository, NotaCreditoRepository notaCreditoRepository) {
         super(baseRepository);
         this.notaCreditoRepository = notaCreditoRepository;
+    }
+    @Override
+    public BigDecimal movimientos(Date fechaDesde, Date fechaHasta) throws Exception{
+        try{
+            BigDecimal movimientos=notaCreditoRepository.movimientos(fechaDesde,fechaHasta);
+            return movimientos;
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
     }
 }

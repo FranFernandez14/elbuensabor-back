@@ -8,25 +8,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Date;
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/notasCredito")
 public class NotaCreditoController extends BaseControllerImpl<NotaCredito, NotaCreditoServiceImpl> {
-/*@GetMapping("/search")
-    public ResponseEntity<?> search(@RequestParam String filtro) {
+    @GetMapping("/movimientos")
+    public ResponseEntity<?> search(@RequestParam Date fechaDesde, Date fechaHasta) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.movimientos(fechaDesde,fechaHasta));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
     }
-
-    @GetMapping("/searchPaged")
-    public ResponseEntity<?> search(@RequestParam String filtro, Pageable pageable) {
-        try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.search(filtro, pageable));
-        } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
-        }
-    }*/
 }
+

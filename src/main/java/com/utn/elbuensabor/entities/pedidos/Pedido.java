@@ -1,5 +1,6 @@
 package com.utn.elbuensabor.entities.pedidos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.utn.elbuensabor.entities.Base;
 import com.utn.elbuensabor.entities.enums.EstadoPedido;
 import com.utn.elbuensabor.entities.enums.FormaPago;
@@ -48,10 +49,6 @@ public class Pedido extends Base {
     @Enumerated(EnumType.STRING)
     private EstadoPedido estadoActual;
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.REFRESH)
-    @Builder. Default
-    private List<PedidoEstado> estados = new ArrayList();
-
     @NotNull
     @Column(name = "tipo_envio")
     @Enumerated(EnumType.STRING)
@@ -69,6 +66,7 @@ public class Pedido extends Base {
     @NotNull
     @ManyToOne()
     @JoinColumn(name = "id_usuario")
+    @JsonIgnore
     private Persona cliente;
 
 }

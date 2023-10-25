@@ -1,5 +1,6 @@
 package com.utn.elbuensabor.entities.usuarios;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.utn.elbuensabor.entities.Base;
 import jakarta.persistence.*;
 
@@ -40,6 +41,7 @@ public class Domicilio extends Base {
     @NotNull
     @ManyToOne()
     @JoinColumn(name = "id_persona")
+    @JsonIgnore
     private Persona persona;
 
 

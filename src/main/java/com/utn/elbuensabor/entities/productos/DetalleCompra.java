@@ -18,15 +18,19 @@ public class DetalleCompra extends Base {
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "id_cliente")
+    @JoinColumn(name = "id_insumo")
     private Insumo insumo;
 
     @NotNull
     @Column(name = "cantidad", precision = 10, scale = 2)
     private BigDecimal cantidad;
 
+    @NotNull
+    private double monto;
+
     @ManyToOne
     @JoinColumn(name = "id_compra_insumo")
     private CompraInsumo compraInsumo;
+
 
 }

@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 import java.math.BigDecimal;
-import java.util.*;
 
 @Entity
 @Table(name = "producto")
@@ -44,8 +43,8 @@ public class Producto extends Base {
     private RubroProducto rubroProducto;
 
     @NotNull
-    @OneToOne
-    @JoinColumn(name = "id_producto")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_receta")
     private Receta receta;
 
 }

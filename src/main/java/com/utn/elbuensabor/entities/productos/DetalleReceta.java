@@ -1,5 +1,6 @@
 package com.utn.elbuensabor.entities.productos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.utn.elbuensabor.entities.Base;
 import jakarta.persistence.*;
 
@@ -30,14 +31,9 @@ public class DetalleReceta extends Base {
     @Column(name = "costo", precision = 10, scale = 2)
     private BigDecimal costo;
 
-    @NotNull
-    @ManyToOne()
-    @JoinColumn(name = "id_producto")
-    private Producto producto;
-
-    @NotNull
     @ManyToOne
     @JoinColumn(name="id_receta")
+    @JsonIgnore
     private Receta receta;
 
 }

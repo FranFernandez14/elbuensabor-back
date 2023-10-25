@@ -40,4 +40,8 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}jar {
+	manifest {
+		attributes 'ElbuensaborApplication': 'com.utn.elbuensabor.ElbuensaborApplication' // Reemplaza 'tu.paquete.MainClass' con la clase principal de tu aplicación
+	}
 }

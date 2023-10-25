@@ -18,25 +18,9 @@ public interface PersonaRepository extends BaseRepository<Persona, Long> {
     @Query(
             value = "UPDATE Persona SET password = :contrasenaNueva WHERE id = :id"
     )
-    public List<Persona> cambiarContrasena(@Param("id") Long id,
+    public Persona cambiarContrasena(@Param("id") Long id,
                                            @Param("contrasenaNueva") String contrasenaNueva);
 
-
-    @Query(
-            value = "UPDATE Persona " +
-                    "SET nombre = :nombre, " +
-                    "apellido = :apellido, " +
-                    "telefono = :telefono, " +
-                    "rol = :rol, " +
-                    "email = :email " +
-                    "WHERE id = :id"
-    )
-    public List<Persona> cambiarDatos(@Param("id") Long id,
-                                @Param("nombre") String nombre,
-                                @Param("apellido") String apellido,
-                                @Param("telefono") String telefono,
-                                @Param("rol") Rol rol,
-                                @Param("email") String email);
 
 
     @Query(

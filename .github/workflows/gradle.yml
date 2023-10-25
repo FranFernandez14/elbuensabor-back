@@ -30,9 +30,6 @@ jobs:
         distribution: 'temurin'
     - name: Setup Java JDK
       uses: actions/setup-java@v3.13.0
-      with:
-          java-version: '11'
-          distribution: 'temurin'
     - name: Unity - Test runner
       uses: game-ci/unity-test-runner@v3.1.0
     - name: Docker build and push

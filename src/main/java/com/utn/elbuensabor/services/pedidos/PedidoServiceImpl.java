@@ -27,7 +27,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
     @Override
     public Pedido cambiarEstado(CambiarEstadoDTO cambiarEstadoDTO) throws Exception{
         try{
-            Pedido pedido = pedidoRepository.getReferenceById(cambiarEstadoDTO.getIdPedido());
+            Pedido pedido = pedidoRepository.findById(cambiarEstadoDTO.getIdPedido()).get();
 
             pedido.setEstadoActual(cambiarEstadoDTO.getEstadoPedido());
 

@@ -24,6 +24,7 @@ public class RubroProducto extends Base {
     @Builder.Default
     private List<Producto> productos = new ArrayList();
     */
+
     @ManyToOne()
     @JoinColumn(name = "id_rubro_padre")
     @JsonIgnore

@@ -2,6 +2,7 @@ package com.utn.elbuensabor.services.usuarios;
 
 import com.utn.elbuensabor.dtos.CambiarContraseñaDTO;
 import com.utn.elbuensabor.dtos.CambiarDatosDTO;
+import com.utn.elbuensabor.dtos.RankingPersonasDTO;
 import com.utn.elbuensabor.entities.enums.Rol;
 import com.utn.elbuensabor.entities.usuarios.Persona;
 import com.utn.elbuensabor.services.BaseService;
@@ -18,6 +19,6 @@ public interface PersonaService extends BaseService<Persona,Long> {
 
     Persona cambiarDatos(CambiarDatosDTO cambiarDatosDTO) throws Exception;
 
-    Page<Persona> ranking (Date fechaInicio, Date fechaFin, String ordenar, Pageable pageable) throws Exception;
+    Page<RankingPersonasDTO> ranking (Date fechaInicio, Date fechaFin, Pageable pageable) throws Exception;
 
 }

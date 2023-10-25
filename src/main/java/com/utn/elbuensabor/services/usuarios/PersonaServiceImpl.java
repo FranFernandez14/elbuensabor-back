@@ -2,6 +2,7 @@ package com.utn.elbuensabor.services.usuarios;
 
 import com.utn.elbuensabor.dtos.CambiarContraseñaDTO;
 import com.utn.elbuensabor.dtos.CambiarDatosDTO;
+import com.utn.elbuensabor.dtos.RankingPersonasDTO;
 import com.utn.elbuensabor.entities.usuarios.Persona;
 import com.utn.elbuensabor.repositories.BaseRepository;
 import com.utn.elbuensabor.repositories.usuarios.PersonaRepository;
@@ -40,7 +41,7 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implement
     @Override
     public Persona cambiarDatos(CambiarDatosDTO cambiarDatosDTO) throws Exception{
         try{
-            Persona persona = personaRepository.getReferenceById(cambiarDatosDTO.getId());
+            Persona persona = personaRepository.findById(cambiarDatosDTO.getId()).get();
 
             persona.setEmail(cambiarDatosDTO.getEmail());
             persona.setApellido(cambiarDatosDTO.getApellido());
@@ -56,9 +57,9 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implement
         }
     }
     @Override
-    public Page<Persona> ranking(Date fechaInicio, Date fechaFin, String ordenar, Pageable pageable) throws Exception{
+    public Page<RankingPersonasDTO> ranking(Date fechaInicio, Date fechaFin, Pageable pageable) throws Exception{
         try{
-            Page<Persona> personas=personaRepository.ranking(fechaInicio,fechaFin,ordenar, pageable);
+            Page<RankingPersonasDTO> personas=personaRepository.ranking(fechaInicio,fechaFin,pageable);
             return personas;
         }catch (Exception e){
             throw new Exception(e.getMessage());

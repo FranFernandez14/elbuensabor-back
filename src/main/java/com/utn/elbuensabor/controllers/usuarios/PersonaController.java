@@ -3,7 +3,9 @@ package com.utn.elbuensabor.controllers.usuarios;
 import com.utn.elbuensabor.controllers.BaseControllerImpl;
 import com.utn.elbuensabor.dtos.CambiarContraseñaDTO;
 import com.utn.elbuensabor.dtos.CambiarDatosDTO;
+import com.utn.elbuensabor.dtos.RankingPersonasDTO;
 import com.utn.elbuensabor.entities.enums.Rol;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,9 +37,9 @@ public class PersonaController extends BaseControllerImpl<Persona, PersonaServic
         }
     }
     @GetMapping("/ranking")
-    public ResponseEntity<?> search(@RequestParam Date fechaInicio, @RequestParam Date fechaFin, @RequestParam  String ordenar, Pageable pageable) {
+    public ResponseEntity<?> search(@RequestParam Date fechaInicio, @RequestParam Date fechaFin, Pageable pageable) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.ranking(fechaInicio,fechaFin,ordenar, pageable));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.ranking(fechaInicio,fechaFin,pageable));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }

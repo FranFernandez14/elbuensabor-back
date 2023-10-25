@@ -35,7 +35,7 @@ public class PersonaController extends BaseControllerImpl<Persona, PersonaServic
         }
     }
     @GetMapping("/ranking")
-    public ResponseEntity<?> search(@RequestParam Date fechaInicio, Date fechaFin, String ordenar, Pageable pageable) {
+    public ResponseEntity<?> search(@RequestParam Date fechaInicio, @RequestParam Date fechaFin, @RequestParam  String ordenar, Pageable pageable) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.ranking(fechaInicio,fechaFin,ordenar, pageable));
         } catch (Exception e){

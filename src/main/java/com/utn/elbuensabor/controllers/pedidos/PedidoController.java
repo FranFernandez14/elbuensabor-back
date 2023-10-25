@@ -28,7 +28,7 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
     }
 
     @GetMapping("/buscar")
-    public ResponseEntity<?> search(@RequestBody List<EstadoPedido> estados, Pageable pageable) {
+    public ResponseEntity<?> search(@RequestParam List<EstadoPedido> estados, Pageable pageable) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.buscar(estados, pageable));
         } catch (Exception e){

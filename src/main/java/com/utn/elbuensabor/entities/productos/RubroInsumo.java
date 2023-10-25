@@ -28,7 +28,6 @@ public class RubroInsumo extends Base {
 
     @OneToMany(mappedBy = "rubroPadre")
     @Builder. Default
-    @JsonManagedReference
     private List<RubroInsumo> subRubro=new ArrayList<>();
 
 /*

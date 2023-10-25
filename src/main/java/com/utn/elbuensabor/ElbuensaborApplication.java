@@ -13,7 +13,6 @@ import com.utn.elbuensabor.entities.usuarios.Persona;
 import com.utn.elbuensabor.repositories.facturacion.DetalleFacturaRepository;
 import com.utn.elbuensabor.repositories.facturacion.FacturaRepository;
 import com.utn.elbuensabor.repositories.pedidos.DetallePedidoRepository;
-import com.utn.elbuensabor.repositories.pedidos.PedidoEstadoRepository;
 import com.utn.elbuensabor.repositories.pedidos.PedidoRepository;
 import com.utn.elbuensabor.repositories.productos.*;
 import com.utn.elbuensabor.repositories.usuarios.DomicilioRepository;
@@ -39,8 +38,6 @@ public class ElbuensaborApplication {
 	FacturaRepository facturaRepository;
 	@Autowired
 	DetallePedidoRepository detallePedidoRepository;
-	@Autowired
-	PedidoEstadoRepository pedidoEstadoRepository;
 	@Autowired
 	PedidoRepository pedidoRepository;
 	@Autowired

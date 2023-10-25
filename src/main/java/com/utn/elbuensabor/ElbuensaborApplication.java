@@ -159,6 +159,7 @@ public class ElbuensaborApplication {
 					.costo(new BigDecimal(500))
 					.denominacion("puré de papa")
 					.precioVenta(new BigDecimal(1234))
+					.rubroProducto(rubroProducto1)
 					.receta(receta1)
 					.build();
 

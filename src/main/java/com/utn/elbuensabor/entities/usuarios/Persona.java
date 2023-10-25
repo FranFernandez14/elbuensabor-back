@@ -2,6 +2,7 @@ package com.utn.elbuensabor.entities.usuarios;
 
 import com.utn.elbuensabor.entities.Base;
 import com.utn.elbuensabor.entities.enums.Rol;
+import com.utn.elbuensabor.entities.facturacion.NotaCredito;
 import com.utn.elbuensabor.entities.pedidos.Pedido;
 import jakarta.persistence.*;
 

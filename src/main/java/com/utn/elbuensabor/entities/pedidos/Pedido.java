@@ -49,10 +49,6 @@ public class Pedido extends Base {
     @Enumerated(EnumType.STRING)
     private EstadoPedido estadoActual;
 
-    @OneToMany(mappedBy = "pedido", cascade = CascadeType.REFRESH)
-    @Builder. Default
-    private List<PedidoEstado> estados = new ArrayList();
-
     @NotNull
     @Column(name = "tipo_envio")
     @Enumerated(EnumType.STRING)

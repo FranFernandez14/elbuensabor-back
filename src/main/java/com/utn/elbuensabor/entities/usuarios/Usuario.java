@@ -11,7 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "persona")
+@Table(name = "usuario")
 @Builder
 public class Usuario extends Base {
 

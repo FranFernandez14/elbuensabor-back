@@ -23,7 +23,7 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
         super(baseRepository);
         this.pedidoRepository = pedidoRepository;
     }
-   //Cambiar PedidoEstado
+   //Cambiar estado
     @Override
     public Pedido cambiarEstado(CambiarEstadoDTO cambiarEstadoDTO) throws Exception{
         try{

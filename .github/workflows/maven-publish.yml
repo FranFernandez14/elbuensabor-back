@@ -14,6 +14,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+            
 
     steps:
     - uses: actions/checkout@v3
@@ -28,6 +29,20 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+    - name: Setup Java JDK
+      uses: actions/setup-java@v3.13.0
+
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2.1.1
+            
+    - name: Run Authzed Test Server
+      uses: authzed/action-testserver@v3
+
+    - name: CodeReady Dependency Analytics
+      uses: redhat-actions/crda@v1.3
+
+            
+            
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:

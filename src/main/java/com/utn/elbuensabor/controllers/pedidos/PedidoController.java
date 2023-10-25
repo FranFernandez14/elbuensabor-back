@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Pageable;
 
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -28,9 +29,9 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
     }
 
     @GetMapping("/buscar")
-    public ResponseEntity<?> search(@RequestBody List<EstadoPedido> estados, Pageable pageable) {
+    public ResponseEntity<?> search(@RequestParam EstadoPedido[] estados, Pageable pageable) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.buscar(estados, pageable));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.buscar(Arrays.asList(estados), pageable));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }

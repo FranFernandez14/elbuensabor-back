@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.utn.elbuensabor.integration.PedidoControllerIntegration" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-10-25T20:36:30" hostname="BOOK-83PFGTMU3M" time="0.207">
+  <properties/>
+  <testcase name="testCambiarEstado()" classname="com.utn.elbuensabor.integration.PedidoControllerIntegration" time="0.173"/>
+  <testcase name="testBuscar()" classname="com.utn.elbuensabor.integration.PedidoControllerIntegration" time="0.031"/>
+  <system-out><![CDATA[Hibernate: insert into pedido (id_usuario,id_domicilio_entrega,estado_actual,fecha_alta,fecha_baja,fecha_modificacion,fecha_pedido,forma_pago,hora_estimada_finalizacion,tipo_envio,total,total_costo,id) values (?,?,?,?,?,?,?,?,?,?,?,?,default)
+Hibernate: select p1_0.id,c1_0.id,c1_0.apellido,c1_0.email,c1_0.fecha_alta,c1_0.fecha_baja,c1_0.fecha_modificacion,c1_0.nombre,c1_0.password,c1_0.rol,c1_0.telefono,d1_0.id,d1_0.calle,d1_0.codigo_postal,d1_0.fecha_alta,d1_0.fecha_baja,d1_0.fecha_modificacion,d1_0.localidad,d1_0.numero,d1_0.numero_vivienda,p2_0.id,p2_0.apellido,p2_0.email,p2_0.fecha_alta,p2_0.fecha_baja,p2_0.fecha_modificacion,p2_0.nombre,p2_0.password,p2_0.rol,p2_0.telefono,d1_0.piso_vivienda,p1_0.estado_actual,p1_0.fecha_alta,p1_0.fecha_baja,p1_0.fecha_modificacion,p1_0.fecha_pedido,p1_0.forma_pago,p1_0.hora_estimada_finalizacion,p1_0.tipo_envio,p1_0.total,p1_0.total_costo from pedido p1_0 left join persona c1_0 on c1_0.id=p1_0.id_usuario left join domicilio d1_0 on d1_0.id=p1_0.id_domicilio_entrega left join persona p2_0 on p2_0.id=d1_0.id_persona where p1_0.id=?
+Hibernate: update pedido set id_usuario=?,id_domicilio_entrega=?,estado_actual=?,fecha_alta=?,fecha_baja=?,fecha_modificacion=?,fecha_pedido=?,forma_pago=?,hora_estimada_finalizacion=?,tipo_envio=?,total=?,total_costo=? where id=?
+Hibernate: select e1_0.id_pedido,e1_0.id,e1_0.estado,e1_0.fecha_alta,e1_0.fecha_baja,e1_0.fecha_modificacion from pedido_estado e1_0 where e1_0.id_pedido=?
+Hibernate: insert into pedido (id_usuario,id_domicilio_entrega,estado_actual,fecha_alta,fecha_baja,fecha_modificacion,fecha_pedido,forma_pago,hora_estimada_finalizacion,tipo_envio,total,total_costo,id) values (?,?,?,?,?,?,?,?,?,?,?,?,default)
+Hibernate: select p1_0.id,p1_0.id_usuario,p1_0.id_domicilio_entrega,p1_0.estado_actual,p1_0.fecha_alta,p1_0.fecha_baja,p1_0.fecha_modificacion,p1_0.fecha_pedido,p1_0.forma_pago,p1_0.hora_estimada_finalizacion,p1_0.tipo_envio,p1_0.total,p1_0.total_costo from pedido p1_0 where p1_0.estado_actual in (?) offset ? rows fetch first ? rows only
+Hibernate: select e1_0.id_pedido,e1_0.id,e1_0.estado,e1_0.fecha_alta,e1_0.fecha_baja,e1_0.fecha_modificacion from pedido_estado e1_0 where e1_0.id_pedido=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

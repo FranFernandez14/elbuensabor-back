@@ -18,10 +18,10 @@ import java.util.*;
 @Builder
 public class RubroProducto extends Base {
 
-
+/*
     @OneToMany(mappedBy = "rubroProducto", cascade = CascadeType.REFRESH)
     @Builder.Default
-    private List<Producto> productos = new ArrayList();
+    private List<Producto> productos = new ArrayList();*/
 
     @ManyToOne()
     @JoinColumn(name = "id_rubro_padre")

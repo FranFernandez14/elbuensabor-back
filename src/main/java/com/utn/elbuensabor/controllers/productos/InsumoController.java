@@ -13,8 +13,8 @@ import com.utn.elbuensabor.services.productos.InsumoServiceImpl;
 @RequestMapping(path = "api/v1/productos/insumo")
 public class InsumoController extends BaseControllerImpl<Insumo,InsumoServiceImpl> {
 
-    @GetMapping("/getSotckBajo")
-    public ResponseEntity<?> search(@RequestParam Pageable pageable) {
+    @GetMapping("/getStockBajo")
+    public ResponseEntity<?> search(Pageable pageable) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.getStockBajo(pageable));
         } catch (Exception e){

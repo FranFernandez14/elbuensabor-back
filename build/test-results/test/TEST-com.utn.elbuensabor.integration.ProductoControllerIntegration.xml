@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.utn.elbuensabor.integration.ProductoControllerIntegration" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-10-25T20:36:31" hostname="BOOK-83PFGTMU3M" time="0.121">
+  <properties/>
+  <testcase name="testRanking()" classname="com.utn.elbuensabor.integration.ProductoControllerIntegration" time="0.068"/>
+  <testcase name="testBuscar()" classname="com.utn.elbuensabor.integration.ProductoControllerIntegration" time="0.024"/>
+  <testcase name="testPorRubro()" classname="com.utn.elbuensabor.integration.ProductoControllerIntegration" time="0.025"/>
+  <system-out><![CDATA[Hibernate: insert into factura (fecha_alta,fecha_baja,fecha_facturacion,fecha_modificacion,forma_pago,mp_merchant_order_id,mp_payment_id,mp_payment_type,mp_preference_id,id_pedido,total_venta,id) values (?,?,?,?,?,?,?,?,?,?,?,default)
+Hibernate: insert into rubro_producto (denominacion,fecha_alta,fecha_baja,fecha_modificacion,id_rubro_padre,id) values (?,?,?,?,?,default)
+Hibernate: insert into producto (costo,denominacion,descripcion,fecha_alta,fecha_baja,fecha_modificacion,precio_venta,id_producto,id_rubro_producto,tiempo_estimado_cocina,url_imagen,id) values (?,?,?,?,?,?,?,?,?,?,?,default)
+Hibernate: insert into detalle_factura (cantidad,id_factura,fecha_alta,fecha_baja,fecha_modificacion,id_producto,subtotal,id) values (?,?,?,?,?,?,?,default)
+Hibernate: select p1_0.id,p1_0.costo,p1_0.denominacion,p1_0.descripcion,p1_0.fecha_alta,p1_0.fecha_baja,p1_0.fecha_modificacion,p1_0.precio_venta,p1_0.id_producto,p1_0.id_rubro_producto,p1_0.tiempo_estimado_cocina,p1_0.url_imagen from producto p1_0 join rubro_producto r1_0 on r1_0.id=p1_0.id_rubro_producto,detalle_factura d1_0 join factura f1_0 on f1_0.id=d1_0.id_factura where d1_0.id_producto=p1_0.id and r1_0.denominacion in (?) and f1_0.fecha_facturacion between ? and ? offset ? rows fetch first ? rows only
+Hibernate: select r1_0.id,r1_0.denominacion,r1_0.fecha_alta,r1_0.fecha_baja,r1_0.fecha_modificacion,r2_0.id,r2_0.denominacion,r2_0.fecha_alta,r2_0.fecha_baja,r2_0.fecha_modificacion,r2_0.id_rubro_padre from rubro_producto r1_0 left join rubro_producto r2_0 on r2_0.id=r1_0.id_rubro_padre where r1_0.id=?
+Hibernate: select s1_0.id_rubro_padre,s1_0.id,s1_0.denominacion,s1_0.fecha_alta,s1_0.fecha_baja,s1_0.fecha_modificacion from rubro_producto s1_0 where s1_0.id_rubro_padre=?
+Hibernate: insert into producto (costo,denominacion,descripcion,fecha_alta,fecha_baja,fecha_modificacion,precio_venta,id_producto,id_rubro_producto,tiempo_estimado_cocina,url_imagen,id) values (?,?,?,?,?,?,?,?,?,?,?,default)
+Hibernate: select p1_0.id,p1_0.costo,p1_0.denominacion,p1_0.descripcion,p1_0.fecha_alta,p1_0.fecha_baja,p1_0.fecha_modificacion,p1_0.precio_venta,p1_0.id_producto,p1_0.id_rubro_producto,p1_0.tiempo_estimado_cocina,p1_0.url_imagen from producto p1_0 where p1_0.denominacion like ? escape '' offset ? rows fetch first ? rows only
+Hibernate: insert into rubro_producto (denominacion,fecha_alta,fecha_baja,fecha_modificacion,id_rubro_padre,id) values (?,?,?,?,?,default)
+Hibernate: insert into producto (costo,denominacion,descripcion,fecha_alta,fecha_baja,fecha_modificacion,precio_venta,id_producto,id_rubro_producto,tiempo_estimado_cocina,url_imagen,id) values (?,?,?,?,?,?,?,?,?,?,?,default)
+Hibernate: select p1_0.id,p1_0.costo,p1_0.denominacion,p1_0.descripcion,p1_0.fecha_alta,p1_0.fecha_baja,p1_0.fecha_modificacion,p1_0.precio_venta,p1_0.id_producto,p1_0.id_rubro_producto,p1_0.tiempo_estimado_cocina,p1_0.url_imagen from producto p1_0 join rubro_producto r1_0 on r1_0.id=p1_0.id_rubro_producto where r1_0.denominacion=? offset ? rows fetch first ? rows only
+Hibernate: select r1_0.id,r1_0.denominacion,r1_0.fecha_alta,r1_0.fecha_baja,r1_0.fecha_modificacion,r2_0.id,r2_0.denominacion,r2_0.fecha_alta,r2_0.fecha_baja,r2_0.fecha_modificacion,r2_0.id_rubro_padre from rubro_producto r1_0 left join rubro_producto r2_0 on r2_0.id=r1_0.id_rubro_padre where r1_0.id=?
+Hibernate: select r1_0.id,r1_0.denominacion,r1_0.fecha_alta,r1_0.fecha_baja,r1_0.fecha_modificacion,r2_0.id,r2_0.denominacion,r2_0.fecha_alta,r2_0.fecha_baja,r2_0.fecha_modificacion,r2_0.id_rubro_padre from rubro_producto r1_0 left join rubro_producto r2_0 on r2_0.id=r1_0.id_rubro_padre where r1_0.id=?
+Hibernate: select s1_0.id_rubro_padre,s1_0.id,s1_0.denominacion,s1_0.fecha_alta,s1_0.fecha_baja,s1_0.fecha_modificacion from rubro_producto s1_0 where s1_0.id_rubro_padre=?
+Hibernate: select s1_0.id_rubro_padre,s1_0.id,s1_0.denominacion,s1_0.fecha_alta,s1_0.fecha_baja,s1_0.fecha_modificacion from rubro_producto s1_0 where s1_0.id_rubro_padre=?
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

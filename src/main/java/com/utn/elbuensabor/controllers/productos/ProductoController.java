@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.utn.elbuensabor.entities.productos.Producto;
 import com.utn.elbuensabor.services.productos.ProductoServiceImpl;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -32,9 +33,9 @@ public class ProductoController extends BaseControllerImpl<Producto,ProductoServ
         }
     }
     @GetMapping("/ranking")
-    public ResponseEntity<?> search(@RequestParam Date fechaInicio, Date fechaHasta, List<String> denominaciones, Pageable pageable) {
+    public ResponseEntity<?> search(@RequestParam Date fechaInicio, Date fechaHasta, String[] denominaciones, Pageable pageable) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(servicio.ranking(fechaInicio,fechaHasta,denominaciones, pageable));
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.ranking(fechaInicio,fechaHasta, Arrays.asList(denominaciones), pageable));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }

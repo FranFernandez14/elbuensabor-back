@@ -1,0 +1,1009 @@
+{
+	"info": {
+		"_postman_id": "59fcb26f-4dc8-43f5-aa0a-6c41abee53f9",
+		"name": "el buen sabor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28944233"
+	},
+		"item": [
+			{
+				"name": "facturacion",
+				"item": [
+					{
+						"name": "factura",
+						"item": [
+							{
+								"name": "1. GET All",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/factura",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"factura"
+										]
+									}
+								}
+							},
+							{
+								"name": "2. GET Paged",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/factura/paged",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"factura",
+											"paged"
+										]
+									}
+								}
+							},
+							{
+								"name": "3. GET One",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/factura/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"factura",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "4. POST",
+								"request": {
+									"method": "POST",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/factura",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"factura"
+										]
+									}
+								}
+							},
+							{
+								"name": "5. PUT",
+								"request": {
+									"method": "PUT",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/factura/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"factura",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "6. DELETE",
+								"request": {
+									"method": "DELETE",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/factura/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"factura",
+											"{id}"
+										]
+									}
+								}
+							}
+						]
+					},
+					{
+						"name": "notaCredito",
+						"item": [
+							{
+								"name": "1. GET All",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/notaCredito",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"notaCredito"
+										]
+									}
+								}
+							},
+							{
+								"name": "2. GET Paged",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/notaCredito/paged",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"notaCredito",
+											"paged"
+										]
+									}
+								}
+							},
+							{
+								"name": "3. GET One",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/notaCredito/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"notaCredito",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "4. POST",
+								"request": {
+									"method": "POST",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/notaCredito",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"notaCredito"
+										]
+									}
+								}
+							},
+							{
+								"name": "5. PUT",
+								"request": {
+									"method": "PUT",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/notaCredito/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"notaCredito",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "6. DELETE",
+								"request": {
+									"method": "DELETE",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/notaCredito/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"notaCredito",
+											"{id}"
+										]
+									}
+								}
+							}
+						]
+					},
+					{
+						"name": "detalleFactura",
+						"item": [
+							{
+								"name": "1. GET All",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/detalleFactura",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"detalleFactura"
+										]
+									}
+								}
+							},
+							{
+								"name": "2. GET Paged",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/detalleFactura/paged",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"detalleFactura",
+											"paged"
+										]
+									}
+								}
+							},
+							{
+								"name": "3. GET One",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/detalleFactura/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"detalleFactura",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "4. POST",
+								"request": {
+									"method": "POST",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/detalleFactura",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"detalleFactura"
+										]
+									}
+								}
+							},
+							{
+								"name": "5. PUT",
+								"request": {
+									"method": "PUT",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/detalleFactura/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"detalleFactura",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "6. DELETE",
+								"request": {
+									"method": "DELETE",
+									"url": {
+										"raw": "localhost:8080/api/v1/facturacion/detalleFactura/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"facturacion",
+											"detalleFactura",
+											"{id}"
+										]
+									}
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "pedidos",
+				"item": [
+					{
+						"name": "pedido",
+						"item": [
+							{
+								"name": "1. GET All",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/pedido",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"pedido"
+										]
+									}
+								}
+							},
+							{
+								"name": "2. GET Paged",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/pedido/paged",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"pedido",
+											"paged"
+										]
+									}
+								}
+							},
+							{
+								"name": "3. GET One",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/pedido/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"pedido",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "4. POST",
+								"request": {
+									"method": "POST",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/pedido",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"pedido"
+										]
+									}
+								}
+							},
+							{
+								"name": "5. PUT",
+								"request": {
+									"method": "PUT",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/pedido/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"pedido",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "6. DELETE",
+								"request": {
+									"method": "DELETE",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/pedido/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"pedido",
+											"{id}"
+										]
+									}
+								}
+							}
+						]
+					},
+					{
+						"name": "entrega",
+						"item": [
+							{
+								"name": "1. GET All",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/entrega",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"entrega"
+										]
+									}
+								}
+							},
+							{
+								"name": "2. GET Paged",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/entrega/paged",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"entrega",
+											"paged"
+										]
+									}
+								}
+							},
+							{
+								"name": "3. GET One",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/entrega/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"entrega",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "4. POST",
+								"request": {
+									"method": "POST",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/entrega",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"entrega"
+										]
+									}
+								}
+							},
+							{
+								"name": "5. PUT",
+								"request": {
+									"method": "PUT",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/entrega/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"entrega",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "6. DELETE",
+								"request": {
+									"method": "DELETE",
+									"url": {
+										"raw": "localhost:8080/api/v1/pedidos/entrega/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"pedidos",
+											"entrega",
+											"{id}"
+										]
+									}
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "clientes",
+				"item": [
+					{
+						"name": "cliente",
+						"item": [
+							{
+								"name": "1. GET All",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/cliente",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"cliente"
+										]
+									}
+								}
+							},
+							{
+								"name": "2. GET Paged",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/cliente/paged",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"cliente",
+											"paged"
+										]
+									}
+								}
+							},
+							{
+								"name": "3. GET One",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/cliente/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"cliente",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "4. POST",
+								"request": {
+									"method": "POST",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/cliente",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"cliente"
+										]
+									}
+								}
+							},
+							{
+								"name": "5. PUT",
+								"request": {
+									"method": "PUT",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/cliente/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"cliente",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "6. DELETE",
+								"request": {
+									"method": "DELETE",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/cliente/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"cliente",
+											"{id}"
+										]
+									}
+								}
+							}
+						]
+					},
+					{
+						"name": "direccion",
+						"item": [
+							{
+								"name": "1. GET All",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/direccion",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"direccion"
+										]
+									}
+								}
+							},
+							{
+								"name": "2. GET Paged",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/direccion/paged",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"direccion",
+											"paged"
+										]
+									}
+								}
+							},
+							{
+								"name": "3. GET One",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/direccion/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"direccion",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "4. POST",
+								"request": {
+									"method": "POST",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/direccion",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"direccion"
+										]
+									}
+								}
+							},
+							{
+								"name": "5. PUT",
+								"request": {
+									"method": "PUT",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/direccion/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"direccion",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "6. DELETE",
+								"request": {
+									"method": "DELETE",
+									"url": {
+										"raw": "localhost:8080/api/v1/clientes/direccion/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"v1",
+											"clientes",
+											"direccion",
+											"{id}"
+										]
+									}
+								}
+							}
+						]
+					}
+				]
+			},
+			{
+				"name": "autores",
+				"item": [
+					{
+						"name": "autor",
+						"item": [
+							{
+								"name": "1. GET All",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/autores/autor",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"autores",
+											"autor"
+										]
+									}
+								}
+							},
+							{
+								"name": "2. GET Paged",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/autores/autor/paged",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"autores",
+											"autor",
+											"paged"
+										]
+									}
+								}
+							},
+							{
+								"name": "3. GET One",
+								"request": {
+									"method": "GET",
+									"url": {
+										"raw": "localhost:8080/api/autores/autor/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"autores",
+											"autor",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "4. POST",
+								"request": {
+									"method": "POST",
+									"url": {
+										"raw": "localhost:8080/api/autores/autor",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"autores",
+											"autor"
+										]
+									}
+								}
+							},
+							{
+								"name": "5. PUT",
+								"request": {
+									"method": "PUT",
+									"url": {
+										"raw": "localhost:8080/api/autores/autor/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"autores",
+											"autor",
+											"{id}"
+										]
+									}
+								}
+							},
+							{
+								"name": "6. DELETE",
+								"request": {
+									"method": "DELETE",
+									"url": {
+										"raw": "localhost:8080/api/autores/autor/{id}",
+										"host": [
+											"localhost"
+										],
+										"port": "8080",
+										"path": [
+											"api",
+											"autores",
+											"autor",
+											"{id}"
+										]
+									}
+								}
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+	

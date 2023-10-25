@@ -14,23 +14,11 @@ import java.util.List;
 @Repository
 public interface PedidoRepository extends BaseRepository<Pedido, Long> {
 
-    //  Este método solo coloca el estado actual.
-    //  Para agregar un PedidoEstado al historial, se debe llamar dentro del mismo servicio
-    //  a este mismo método y a save para el PedidoEstado correspondiente.
-    @Query(
-            value = "UPDATE Pedido " +
-                    "SET estadoActual = :estado " +
-                    "WHERE id = :id"
-    )
-    public List<Pedido> cambiarEstado(@Param("id") Long id,
-                                @Param("estado") EstadoPedido estadoPedido);
 
     @Query(
             value = "SElECT p FROM Pedido p " +
-                    "WHERE id LIKE %:id% " +
-                    "AND estadoActual IN :estados"
+                    "WHERE estadoActual IN :estados"
     )
-    public Page<Pedido> buscar(@Param("id") Long id,
-                               @Param("estados")List<EstadoPedido> estados,
+    public Page<Pedido> buscar(@Param("estados")List<EstadoPedido> estados,
                                Pageable pageable);
 }

@@ -1,5 +1,6 @@
 package com.utn.elbuensabor.services.pedidos;
 
+import com.utn.elbuensabor.dtos.CambiarEstadoDTO;
 import com.utn.elbuensabor.entities.enums.EstadoPedido;
 import com.utn.elbuensabor.entities.pedidos.Pedido;
 import com.utn.elbuensabor.repositories.BaseRepository;
@@ -24,18 +25,23 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
     }
    //Cambiar PedidoEstado
     @Override
-    public List<Pedido> cambiarEstado(Long id, EstadoPedido estadoPedido) throws Exception{
+    public Pedido cambiarEstado(CambiarEstadoDTO cambiarEstadoDTO) throws Exception{
         try{
-            List<Pedido> pedido=pedidoRepository.cambiarEstado(id, estadoPedido);
+            Pedido pedido = pedidoRepository.getReferenceById(cambiarEstadoDTO.getIdPedido());
+
+            pedido.setEstadoActual(cambiarEstadoDTO.getEstadoPedido());
+
+            pedidoRepository.save(pedido);
+
             return pedido;
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }
     @Override
-    public Page<Pedido> buscar(Long id, List<EstadoPedido> estados, Pageable pageable) throws Exception{
+    public Page<Pedido> buscar(List<EstadoPedido> estados, Pageable pageable) throws Exception{
         try{
-            Page<Pedido> pedido=pedidoRepository.buscar(id,estados, pageable);
+            Page<Pedido> pedido=pedidoRepository.buscar(estados, pageable);
             return pedido;
         }catch (Exception e){
             throw new Exception(e.getMessage());

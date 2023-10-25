@@ -1,6 +1,7 @@
 package com.utn.elbuensabor.services.usuarios;
 
-import com.utn.elbuensabor.entities.enums.Rol;
+import com.utn.elbuensabor.dtos.CambiarContraseñaDTO;
+import com.utn.elbuensabor.dtos.CambiarDatosDTO;
 import com.utn.elbuensabor.entities.usuarios.Persona;
 import com.utn.elbuensabor.repositories.BaseRepository;
 import com.utn.elbuensabor.repositories.usuarios.PersonaRepository;
@@ -11,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
 
 @Service
 public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implements PersonaService {
@@ -22,20 +22,35 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implement
         super(baseRepository);
         this.personaRepository = personaRepository;
     }
+
     @Override
-    public List<Persona> cambiarContrasena(Long id,String contrasenaNueva) throws Exception{
+    public boolean cambiarContrasena(CambiarContraseñaDTO cambiarContraseñaDTO) throws Exception{
         try{
-            List<Persona> personas=personaRepository.cambiarContrasena(id,contrasenaNueva);
-            return personas;
+            Persona persona = personaRepository.getReferenceById(cambiarContraseñaDTO.getId());
+            if (persona.getPassword().equals(cambiarContraseñaDTO.getContraseñaActual())) {
+                personaRepository.cambiarContrasena(cambiarContraseñaDTO.getId(), cambiarContraseñaDTO.getContraseñaNueva());
+                return true;
+            }else{
+                return false;
+            }
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }
     @Override
-    public List<Persona> cambiarDatos(Long id, String nombre, String apellido, String telefono, Rol rol, String email) throws Exception{
+    public Persona cambiarDatos(CambiarDatosDTO cambiarDatosDTO) throws Exception{
         try{
-            List<Persona> personas=personaRepository.cambiarDatos(id,nombre,apellido,telefono,rol,email);
-            return personas;
+            Persona persona = personaRepository.getReferenceById(cambiarDatosDTO.getId());
+
+            persona.setEmail(cambiarDatosDTO.getEmail());
+            persona.setApellido(cambiarDatosDTO.getApellido());
+            persona.setNombre(cambiarDatosDTO.getNombre());
+            persona.setRol(cambiarDatosDTO.getRol());
+            persona.setTelefono(cambiarDatosDTO.getTelefono());
+
+            personaRepository.save(persona);
+
+            return persona;
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }

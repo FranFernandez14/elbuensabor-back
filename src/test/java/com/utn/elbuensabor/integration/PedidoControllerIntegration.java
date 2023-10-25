@@ -54,16 +54,17 @@ public class PedidoControllerIntegration {
         pedido.setTotal(new BigDecimal(149.99));
 
 
-        pedidoRepository.save(pedido);
+        Pedido p = pedidoRepository.save(pedido);
+
 
 
         mockMvc.perform(get("/api/v1/pedidos/pedido/buscar")
                         .param("page", "0")
-                        .param("size", "5")
+                        .param("size", "100")
                         .param("estados", "EN_CAMINO")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.content[0].total", is(149.99)));
+                .andExpect(jsonPath("$.content["+ (p.getId()-1) + "].total", is(149.99)));
 
     }
 }

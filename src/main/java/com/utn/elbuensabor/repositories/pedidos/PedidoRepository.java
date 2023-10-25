@@ -16,7 +16,7 @@ public interface PedidoRepository extends BaseRepository<Pedido, Long> {
 
 
     @Query(
-            value = "SElECT p FROM Pedido p " +
+            value = "SELECT p FROM Pedido p " +
                     "WHERE estadoActual IN :estados"
     )
     public Page<Pedido> buscar(@Param("estados")List<EstadoPedido> estados,

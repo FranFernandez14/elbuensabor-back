@@ -38,7 +38,7 @@ public class InsumoControllerIntegration {
             insumoRepository.save(insumo);
         }
 
-        mockMvc.perform(get("/api/v1/productos/insumo/getStockBajo")
+        mockMvc.perform(get("/api/v1/productos/insumo/stockBajo")
                         .param("page", "1")
                         .param("size", "5")
                         .contentType(MediaType.APPLICATION_JSON))

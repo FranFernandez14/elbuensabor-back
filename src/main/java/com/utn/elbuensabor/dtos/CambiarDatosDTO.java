@@ -10,5 +10,4 @@ public class CambiarDatosDTO {
     private String nombre;
     private String apellido;
     private String telefono;
-
 }

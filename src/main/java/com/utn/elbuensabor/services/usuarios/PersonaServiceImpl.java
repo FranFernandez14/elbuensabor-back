@@ -60,6 +60,7 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implement
     public Page<RankingPersonasDTO> ranking(Date fechaInicio, Date fechaFin, Pageable pageable) throws Exception{
         try{
             Page<RankingPersonasDTO> personas=personaRepository.ranking(fechaInicio,fechaFin,pageable);
+
             return personas;
         }catch (Exception e){
             throw new Exception(e.getMessage());

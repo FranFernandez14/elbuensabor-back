@@ -188,19 +188,21 @@ public class ElbuensaborApplication {
 					.codigoPostal(1234)
 					.build();
 
-			Pedido pedido1 = Pedido.builder()
-					.estadoActual(EstadoPedido.EN_CAMINO)
-					.formaPago(FormaPago.MERCADO_PAGO)
-					.domicilioEntrega(domicilio1)
-					.build();
-
 			DetallePedido detallePedido1 = DetallePedido.builder()
 					.cantidad(1)
 					.subtotal(BigDecimal.valueOf(1000))
 					.producto(producto1)
 					.subtotalCosto(BigDecimal.valueOf(1234))
-					.pedido(pedido1)
 					.build();
+
+			Pedido pedido1 = Pedido.builder()
+					.estadoActual(EstadoPedido.PENDIENTE_PAGO)
+					.formaPago(FormaPago.MERCADO_PAGO)
+					.domicilioEntrega(domicilio1)
+					.detalles(new ArrayList<>())
+					.build();
+
+			pedido1.addDetallePedido(detallePedido1);
 
 
 

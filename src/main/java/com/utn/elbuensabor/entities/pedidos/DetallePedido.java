@@ -34,9 +34,6 @@ public class DetallePedido extends Base {
     @JoinColumn(name = "id_producto")
     private Producto producto;
 
-    @NotNull
-    @ManyToOne()
-    @JoinColumn(name = "id_pedido")
-    private Pedido pedido;
+
 
 }

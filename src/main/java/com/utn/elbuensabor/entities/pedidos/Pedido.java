@@ -69,4 +69,12 @@ public class Pedido extends Base {
     @JsonIgnore
     private Persona cliente;
 
+    @NotNull
+    @OneToMany()
+    @JoinColumn(name = "id_pedido")
+    private List<DetallePedido> detalles = new ArrayList<>();
+
+    public void addDetallePedido(DetallePedido detallePedido) {
+        detalles.add(detallePedido);
+    }
 }

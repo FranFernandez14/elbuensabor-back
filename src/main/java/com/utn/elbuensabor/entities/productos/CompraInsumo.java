@@ -16,6 +16,7 @@ import java.util.*;
 @Getter
 @Setter
 @Builder
+@Data
 public class CompraInsumo extends Base {
 
     @OneToMany(mappedBy = "compraInsumo", cascade = CascadeType.ALL)

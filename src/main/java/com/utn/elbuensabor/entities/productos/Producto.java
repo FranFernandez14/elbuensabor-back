@@ -28,11 +28,11 @@ public class Producto extends Base {
     private Integer tiempoEstimadoCocina;
 
     @NotNull
-    @Column(name = "precio_venta", precision = 10, scale = 2)
-    private BigDecimal precioVenta;
+    @Column(name = "precio_venta")
+    private double precioVenta;
 
-    @Column(name = "costo", precision = 10, scale = 2)
-    private BigDecimal costo;
+    @Column(name = "costo")
+    private double costo;
 
     @Column(length = 500, name = "url_imagen")
     private String urlImagen;

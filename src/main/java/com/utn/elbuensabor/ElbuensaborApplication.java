@@ -108,7 +108,7 @@ public class ElbuensaborApplication {
 					.denominacion("leche")
 					.stockMinimo(new BigDecimal(100))
 					.unidadMedida(unidadMedida1)
-					.precioCompra(new BigDecimal(1500))
+					.precioCompra(new BigDecimal(2000))
 					.build();
 
 			Insumo insumo2 = Insumo.builder().rubroInsumo(rubroInsumo3)

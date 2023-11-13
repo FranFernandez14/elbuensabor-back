@@ -19,6 +19,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Builder
+@Data
 public class Factura extends Base {
 
     @NotNull

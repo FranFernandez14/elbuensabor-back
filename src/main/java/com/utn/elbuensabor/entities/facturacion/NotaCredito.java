@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Table(name = "nota_credito")
+@Data
 @Builder
 public class NotaCredito extends Base {
 
@@ -23,7 +24,6 @@ public class NotaCredito extends Base {
 
     @ManyToOne
     private Persona cliente;
-
 
     @OneToOne
     private Factura factura;

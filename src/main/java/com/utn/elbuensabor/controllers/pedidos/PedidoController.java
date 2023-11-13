@@ -3,6 +3,7 @@ package com.utn.elbuensabor.controllers.pedidos;
 import com.utn.elbuensabor.controllers.BaseControllerImpl;
 
 import com.utn.elbuensabor.dtos.CambiarEstadoDTO;
+import com.utn.elbuensabor.dtos.DetallePedidoDTO;
 import com.utn.elbuensabor.entities.enums.EstadoPedido;
 import com.utn.elbuensabor.entities.pedidos.Pedido;
 import com.utn.elbuensabor.services.pedidos.PedidoServiceImpl;
@@ -20,7 +21,7 @@ import java.util.List;
 @RequestMapping(path = "api/v1/pedidos/pedido")
 public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceImpl> {
     @PutMapping("/cambiarEstado")
-    public ResponseEntity<?> search(@RequestBody CambiarEstadoDTO cambiarEstadoDTO) {
+    public ResponseEntity<?> cambiarEstado(@RequestBody CambiarEstadoDTO cambiarEstadoDTO) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.cambiarEstado(cambiarEstadoDTO));
         } catch (Exception e){
@@ -32,6 +33,16 @@ public class PedidoController extends BaseControllerImpl<Pedido, PedidoServiceIm
     public ResponseEntity<?> search(@RequestParam EstadoPedido[] estados, Pageable pageable) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.buscar(Arrays.asList(estados), pageable));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
+        }
+    }
+
+
+    @PutMapping("/agregarDetalle")
+    public ResponseEntity<?> agregarDetalle(@RequestBody DetallePedidoDTO detallePedidoDTO){
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.agregarDetalle(detallePedidoDTO));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }

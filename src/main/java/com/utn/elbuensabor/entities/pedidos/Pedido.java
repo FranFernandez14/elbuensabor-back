@@ -38,12 +38,12 @@ public class Pedido extends Base {
     private LocalDateTime horaEstimadaFinalizacion;
 
     @NotNull
-    @Column(name = "total", precision = 10, scale = 2)
-    private BigDecimal total;
+    @Column(name = "total")
+    private double total;
 
     @NotNull
-    @Column(name = "total_costo", precision = 10, scale = 2)
-    private BigDecimal totalCosto;
+    @Column(name = "total_costo")
+    private double totalCosto;
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -64,9 +64,8 @@ public class Pedido extends Base {
     private Domicilio domicilioEntrega;
 
     @NotNull
-    @ManyToOne()
-    @JoinColumn(name = "id_usuario")
-    @JsonIgnore
-    private Persona cliente;
+    @OneToMany()
+    @JoinColumn(name = "id_pedido")
+    private List<DetallePedido> detalles = new ArrayList<>();
 
 }

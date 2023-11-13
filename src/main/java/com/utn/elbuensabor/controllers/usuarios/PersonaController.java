@@ -3,6 +3,7 @@ package com.utn.elbuensabor.controllers.usuarios;
 import com.utn.elbuensabor.controllers.BaseControllerImpl;
 import com.utn.elbuensabor.dtos.CambiarContraseñaDTO;
 import com.utn.elbuensabor.dtos.CambiarDatosDTO;
+import com.utn.elbuensabor.dtos.CrearPedidoDTO;
 import com.utn.elbuensabor.dtos.RankingPersonasDTO;
 import com.utn.elbuensabor.entities.enums.Rol;
 import org.springframework.data.domain.Page;
@@ -20,7 +21,7 @@ import java.util.Date;
 @RequestMapping(path = "api/v1/usuarios/persona")
 public class PersonaController extends BaseControllerImpl<Persona, PersonaServiceImpl> {
     @PutMapping("/cambiarContraseña")
-    public ResponseEntity<?> search(@RequestBody CambiarContraseñaDTO cambiarContraseñaDTO) {
+    public ResponseEntity<?> cambiarContraseña(@RequestBody CambiarContraseñaDTO cambiarContraseñaDTO) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.cambiarContrasena(cambiarContraseñaDTO));
         } catch (Exception e) {
@@ -29,7 +30,7 @@ public class PersonaController extends BaseControllerImpl<Persona, PersonaServic
     }
 
     @PutMapping("/cambiarDatos")
-    public ResponseEntity<?> search(@RequestBody CambiarDatosDTO cambiarDatosDTO) {
+    public ResponseEntity<?> cambiarDatos(@RequestBody CambiarDatosDTO cambiarDatosDTO) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.cambiarDatos(cambiarDatosDTO));
         } catch (Exception e) {
@@ -37,9 +38,18 @@ public class PersonaController extends BaseControllerImpl<Persona, PersonaServic
         }
     }
     @GetMapping("/ranking")
-    public ResponseEntity<?> search(@RequestParam Date fechaInicio, @RequestParam Date fechaFin, Pageable pageable) {
+    public ResponseEntity<?> ranking(@RequestParam Date fechaInicio, @RequestParam Date fechaFin, Pageable pageable) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(servicio.ranking(fechaInicio,fechaFin,pageable));
+        } catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
+        }
+    }
+
+    @PutMapping("/crearPedido")
+    public ResponseEntity<?> crearPedido(@RequestBody CrearPedidoDTO crearPedidoDTO){
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.crearPedido(crearPedidoDTO));
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }

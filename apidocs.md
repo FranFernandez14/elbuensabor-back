@@ -2,7 +2,7 @@
 
 Las querys se organizan según la entidad con la que más se relacionan, por lo que la ruta para invocarlas siempre es:
 
-`/api/v1/{entidad}/{método}`
+`/api/v1/{modulo}/{entidad}/{método}`
 
 Para todas las entidades, se provee los siguientes métodos de acceso a la base de datos:
 

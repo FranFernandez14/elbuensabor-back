@@ -1,23 +1,33 @@
 package com.utn.elbuensabor.services.usuarios;
 
-import com.utn.elbuensabor.dtos.CambiarContraseñaDTO;
-import com.utn.elbuensabor.dtos.CambiarDatosDTO;
-import com.utn.elbuensabor.dtos.RankingPersonasDTO;
+import com.utn.elbuensabor.dtos.*;
+import com.utn.elbuensabor.entities.enums.EstadoPedido;
+import com.utn.elbuensabor.entities.pedidos.DetallePedido;
+import com.utn.elbuensabor.entities.pedidos.Pedido;
+import com.utn.elbuensabor.entities.productos.Producto;
+import com.utn.elbuensabor.entities.usuarios.Domicilio;
 import com.utn.elbuensabor.entities.usuarios.Persona;
 import com.utn.elbuensabor.repositories.BaseRepository;
 import com.utn.elbuensabor.repositories.usuarios.PersonaRepository;
 import com.utn.elbuensabor.services.BaseServiceImpl;
+import com.utn.elbuensabor.services.productos.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Service
 public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implements PersonaService {
     @Autowired
     private PersonaRepository personaRepository;
+    @Autowired
+    private DomicilioService domicilioService;
+    @Autowired
+    private ProductoService productoService;
 
     public PersonaServiceImpl(BaseRepository<Persona, Long> baseRepository, PersonaRepository personaRepository){
         super(baseRepository);
@@ -66,4 +76,25 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implement
         }
     }
 
+    public Pedido crearPedido(CrearPedidoDTO crearPedidoDTO) throws Exception {
+        Persona persona = personaRepository.getReferenceById(crearPedidoDTO.getIdPersona());
+        Domicilio domicilio = domicilioService.findById(crearPedidoDTO.getIdDomicilio());
+        Pedido pedido = Pedido.builder().
+                fechaPedido(Date.from(Instant.now())).
+                estadoActual(EstadoPedido.PENDIENTE_PAGO).
+                domicilioEntrega(domicilio)
+                .formaPago(crearPedidoDTO.getFormaPago())
+                .tipoEnvio(crearPedidoDTO.getTipoEnvio())
+                .build();
+        double total=0;
+        double totalCosto=0;
+
+        pedido.setTotal(total);
+        pedido.setTotalCosto(totalCosto);
+
+        persona.getPedidos().add(pedido);
+        personaRepository.save(persona);
+
+        return pedido;
+    }
 }

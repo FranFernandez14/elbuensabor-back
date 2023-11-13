@@ -57,17 +57,29 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
     @Override
     public Pedido agregarDetalle(DetallePedidoDTO detallePedidoDTO) throws Exception {
         Pedido pedido = pedidoRepository.getReferenceById(detallePedidoDTO.getIdPedido());
-        Producto producto = productoService.findById(detallePedidoDTO.getIdProducto());
-        double cant = (double) detallePedidoDTO.getCantidad();
-        DetallePedido detallePedido = DetallePedido.builder().
-                cantidad(detallePedidoDTO.getCantidad()).
-                producto(producto).
-                subtotal(cant*producto.getPrecioVenta()).
-                subtotalCosto(cant*producto.getCosto()).
-                build();
-        pedido.getDetalles().add(detallePedido);
-        pedido.setTotal(pedido.getTotal() + detallePedido.getSubtotal());
-        pedido.setTotalCosto(pedido.getTotalCosto() + detallePedido.getSubtotalCosto());
+        boolean existe = false;
+        for (DetallePedido detalle: pedido.getDetalles()) {
+            if (detalle.getProducto().getId()== detallePedidoDTO.getIdProducto()){
+                detalle.setCantidad(detalle.getCantidad()+ detalle.getCantidad());
+                detalle.setSubtotal(detalle.getSubtotal()+detalle.getProducto().getPrecioVenta());
+                detalle.setSubtotalCosto(detalle.getSubtotalCosto()+detalle.getProducto().getCosto());
+                pedido.setTotal(pedido.getTotal() + detalle.getProducto().getPrecioVenta());
+                pedido.setTotalCosto(pedido.getTotalCosto() + detalle.getProducto().getCosto());
+                existe = true;
+                break;
+            }
+        }
+        
+        if (existe == false){
+            Producto producto = productoService.findById(detallePedidoDTO.getIdProducto());
+            DetallePedido detallePedido = DetallePedido.builder().
+                    cantidad(1).
+                    producto(producto).
+                    subtotal(producto.getPrecioVenta()).
+                    subtotalCosto(producto.getCosto()).
+                    build();
+            pedido.getDetalles().add(detallePedido);
+        }
         pedidoRepository.save(pedido);
         return pedido;
     }

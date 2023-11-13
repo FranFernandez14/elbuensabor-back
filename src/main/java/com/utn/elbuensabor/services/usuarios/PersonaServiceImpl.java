@@ -81,7 +81,7 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implement
         Domicilio domicilio = domicilioService.findById(crearPedidoDTO.getIdDomicilio());
         Pedido pedido = Pedido.builder().
                 fechaPedido(Date.from(Instant.now())).
-                estadoActual(EstadoPedido.PENDIENTE_PAGO).
+                estadoActual(EstadoPedido.SIN_PEDIR).
                 domicilioEntrega(domicilio)
                 .formaPago(crearPedidoDTO.getFormaPago())
                 .tipoEnvio(crearPedidoDTO.getTipoEnvio())

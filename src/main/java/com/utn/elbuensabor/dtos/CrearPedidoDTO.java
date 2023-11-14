@@ -9,8 +9,6 @@ import java.util.*;
 public class CrearPedidoDTO {
 
     private Long idPersona;
-    private TipoEnvio tipoEnvio;
-    private FormaPago formaPago;
     private Long idDomicilio;
 
 }

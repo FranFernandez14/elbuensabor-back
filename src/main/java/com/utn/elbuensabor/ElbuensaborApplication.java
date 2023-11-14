@@ -228,9 +228,9 @@ public class ElbuensaborApplication {
 					.rol(Rol.ADMINISTRADOR)
 					.domicilios(Collections.singletonList(domicilio1))
 					.pedidos(Collections.singletonList(pedido1))
-					.email("leo@gmail.com")
+					.email("admin@gmail.com")
 					.telefono(String.valueOf(21332))
-					.password("blabla")
+					.password("$2a$10$xvNOv08CGNYWUd59RLlwnuN.xF7SgBjsNxfrMCWh59ONjE.QfNx0K")
 					.build();
 			domicilio1.setPersona(persona1);
 

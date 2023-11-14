@@ -13,6 +13,13 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.Arrays;
+
+import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
@@ -35,8 +42,8 @@ public class SecurityConfig {
                         //Autorizacion de acceso a las urls:
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/facturacion/**")).hasAnyAuthority("ADMINISTRADOR", "DELIVERY", "CAJERO", "CLIENTE")
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/pedidos/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO", "DELIVERY", "CAJERO", "CLIENTE")
-                        .requestMatchers(new AntPathRequestMatcher("/api/v1/productos/producto/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO", "DELIVERY", "CAJERO", "CLIENTE")
-                        .requestMatchers(new AntPathRequestMatcher("/api/v1/productos/rubroProducto/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO", "DELIVERY", "CAJERO", "CLIENTE")
+                        .requestMatchers(new AntPathRequestMatcher("/api/v1/productos/producto/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/api/v1/productos/rubroProducto/**")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/productos/compraInsumo/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO")
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/productos/detalleCompra/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO")
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/productos/receta/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO")
@@ -47,6 +54,7 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/api/v1/usuarios/**")).hasAnyAuthority("ADMINISTRADOR", "COCINERO", "DELIVERY", "CAJERO", "CLIENTE")
 
             )
+            .cors(withDefaults())
             .headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable)) //H2
             .sessionManagement(sessionManager->
                     sessionManager
@@ -56,5 +64,14 @@ public class SecurityConfig {
             .build();
     }
 
-
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("*"));
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 }

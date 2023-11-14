@@ -63,8 +63,8 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
                 detalle.setCantidad(detalle.getCantidad()+ detallePedidoDTO.getCantidad());
                 detalle.setSubtotal(detalle.getSubtotal()+detalle.getProducto().getPrecioVenta() * detallePedidoDTO.getCantidad());
                 detalle.setSubtotalCosto(detalle.getSubtotalCosto()+detalle.getProducto().getCosto() * detallePedidoDTO.getCantidad());
-                pedido.setTotal(pedido.getTotal() + detalle.getSubtotal());
-                pedido.setTotalCosto(pedido.getTotalCosto() + detalle.getSubtotalCosto());
+                pedido.setTotal(pedido.getTotal() + detalle.getProducto().getPrecioVenta() * detallePedidoDTO.getCantidad());
+                pedido.setTotalCosto(pedido.getTotalCosto() + detalle.getProducto().getCosto() * detallePedidoDTO.getCantidad());
                 existe = true;
                 break;
             }
@@ -81,6 +81,9 @@ public class PedidoServiceImpl extends BaseServiceImpl<Pedido, Long> implements 
             pedido.getDetalles().add(detallePedido);
             pedido.setTotal(pedido.getTotal() + detallePedido.getSubtotal());
             pedido.setTotalCosto(pedido.getTotalCosto() + detallePedido.getSubtotalCosto());
+
+            System.out.println(detallePedido.getCantidad());
+            System.out.println(detallePedidoDTO.getCantidad());
         }
         pedidoRepository.save(pedido);
         return pedido;

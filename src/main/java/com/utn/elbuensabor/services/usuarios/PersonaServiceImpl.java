@@ -84,8 +84,6 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implement
                 fechaPedido(Date.from(Instant.now())).
                 estadoActual(EstadoPedido.SIN_PEDIR).
                 domicilioEntrega(domicilio)
-                .formaPago(crearPedidoDTO.getFormaPago())
-                .tipoEnvio(crearPedidoDTO.getTipoEnvio())
                 .build();
         double total=0;
         double totalCosto=0;

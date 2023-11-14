@@ -25,4 +25,5 @@ public interface PersonaService extends BaseService<Persona,Long> {
 
     Pedido crearPedido(CrearPedidoDTO crearPedidoDTO) throws Exception;
 
+    Persona getByEmail(String email);
 }

@@ -64,14 +64,10 @@ public class Pedido extends Base {
     private Domicilio domicilioEntrega;
 
     @NotNull
-    @OneToMany()
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pedido")
     private List<DetallePedido> detalles = new ArrayList<>();
 
-    @NotNull
-    @OneToMany()
-    @JoinColumn(name = "id_pedido")
-    private List<DetallePedido> detalles = new ArrayList<>();
 
     public void addDetallePedido(DetallePedido detallePedido) {
         detalles.add(detallePedido);

@@ -9,6 +9,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 import java.math.BigDecimal;
 import java.util.*;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "compra_insumo")
 @NoArgsConstructor

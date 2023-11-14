@@ -20,6 +20,16 @@ import java.util.Date;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/usuarios/persona")
 public class PersonaController extends BaseControllerImpl<Persona, PersonaServiceImpl> {
+
+    @GetMapping("/getByEmail")
+    public ResponseEntity<?> getByEmail(@RequestParam String email) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(servicio.getByEmail(email));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. Usuario de e-mail '" + email + "' no encontrado.\"}");
+        }
+    }
+
     @PutMapping("/cambiarContraseña")
     public ResponseEntity<?> cambiarContraseña(@RequestBody CambiarContraseñaDTO cambiarContraseñaDTO) {
         try {

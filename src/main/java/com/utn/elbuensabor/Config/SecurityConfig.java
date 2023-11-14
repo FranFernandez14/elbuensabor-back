@@ -24,9 +24,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-            .csrf(csrf ->
-                    csrf
-                            .disable())
+            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authRequest ->
                 authRequest
                         //El uso de AntPathRequestMatcher fue indicado por el profe el 10/11 a las 20:59 por el grupo de Whatsapp

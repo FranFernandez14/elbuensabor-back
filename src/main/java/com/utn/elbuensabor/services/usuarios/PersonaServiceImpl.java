@@ -78,7 +78,7 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implement
     }
 
     public Pedido crearPedido(CrearPedidoDTO crearPedidoDTO) throws Exception {
-        Persona persona = personaRepository.getReferenceById(crearPedidoDTO.getIdPersona());
+        Persona persona = personaRepository.findById(crearPedidoDTO.getIdPersona()).get();
         Domicilio domicilio = domicilioService.findById(crearPedidoDTO.getIdDomicilio());
         Pedido pedido = Pedido.builder().
                 fechaPedido(Date.from(Instant.now())).
@@ -97,5 +97,10 @@ public class PersonaServiceImpl extends BaseServiceImpl<Persona, Long> implement
         personaRepository.save(persona);
 
         return pedido;
+    }
+
+    @Override
+    public Persona getByEmail(String email) {
+        return personaRepository.findByEmail(email).get();
     }
 }

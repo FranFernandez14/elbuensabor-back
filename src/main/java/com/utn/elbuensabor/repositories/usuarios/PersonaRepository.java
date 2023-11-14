@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface PersonaRepository extends BaseRepository<Persona, Long> {
@@ -37,4 +38,6 @@ public interface PersonaRepository extends BaseRepository<Persona, Long> {
     public Page<RankingPersonasDTO> ranking(@Param("inicio") Date fechaInicio,
                                             @Param("fin") Date fechaFin,
                                             Pageable pageable);
+
+    Optional<Persona> findByEmail(String mail);
 }

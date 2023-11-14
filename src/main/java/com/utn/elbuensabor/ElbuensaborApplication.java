@@ -156,9 +156,9 @@ public class ElbuensaborApplication {
 
 
 			Producto producto1 = Producto.builder()
-					.costo(new BigDecimal(500))
+					.costo(500.00)
 					.denominacion("puré de papa")
-					.precioVenta(new BigDecimal(1234))
+					.precioVenta(1234)
 					.rubroProducto(rubroProducto1)
 					.receta(receta1)
 					.build();
@@ -190,9 +190,9 @@ public class ElbuensaborApplication {
 
 			DetallePedido detallePedido1 = DetallePedido.builder()
 					.cantidad(1)
-					.subtotal(BigDecimal.valueOf(1000))
+					.subtotal(1000)
 					.producto(producto1)
-					.subtotalCosto(BigDecimal.valueOf(1234))
+					.subtotalCosto(234)
 					.build();
 
 			Pedido pedido1 = Pedido.builder()
@@ -233,8 +233,6 @@ public class ElbuensaborApplication {
 					.password("blabla")
 					.build();
 			domicilio1.setPersona(persona1);
-			pedido1.setCliente(persona1);
-
 
 			personaRepository.save(persona1);
 

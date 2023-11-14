@@ -1,22 +1,30 @@
 package com.utn.elbuensabor.autenticacion;
 
-import com.utn.elbuensabor.entities.usuarios.Usuario;
-import com.utn.elbuensabor.repositories.usuarios.UsuarioRepository;
+import com.utn.elbuensabor.Jwt.JwtService;
+import com.utn.elbuensabor.entities.usuarios.Domicilio;
+import com.utn.elbuensabor.entities.usuarios.Persona;
+import com.utn.elbuensabor.repositories.usuarios.PersonaRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 
 @Service
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final UsuarioRepository userRepository;
+    private final PersonaRepository personaRepository;
     private final JwtService jwtService;
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
 
     public AuthResponse login(LoginRequest request) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
-        UserDetails user=userRepository.findByUsername(request.getUsername()).orElseThrow();
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
+        UserDetails user = personaRepository.findByEmail(request.getEmail()).orElseThrow();
         String token=jwtService.getToken(user);
         return AuthResponse.builder()
                 .token(token)
@@ -25,19 +33,24 @@ public class AuthService {
     }
 
     public AuthResponse register(RegisterRequest request) {
-        Usuario usuario = usuario.builder()
-                .username(request.getUsername())
+        ArrayList<Domicilio> domicilios = new ArrayList<>();
+        domicilios.add(request.getDomicilio());
+
+        Persona usuario = Persona.builder()
+                .email(request.getEmail())
                 .password(passwordEncoder.encode( request.getPassword()))
-                .firstname(request.getFirstname())
-                .lastname(request.lastname)
-                .country(request.getCountry())
-                .role(Role.USER)
+                .nombre(request.getNombre())
+                .apellido(request.getApellido())
+                .domicilios(domicilios)
+                .rol(request.getRol())
+                .telefono(request.getTelefono())
                 .build();
 
-        userRepository.save(user);
+
+        personaRepository.save(usuario);
 
         return AuthResponse.builder()
-                .token(jwtService.getToken(user))
+                .token(jwtService.getToken(usuario))
                 .build();
 
     }

@@ -8,8 +8,12 @@ import jakarta.persistence.*;
 
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -17,9 +21,9 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "persona")
+@Table(name = "persona", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 @Builder
-public class Persona extends Base {
+public class Persona extends Base implements UserDetails {
 
     @NotNull
     @Column(name = "email", nullable = false)
@@ -49,8 +53,8 @@ public class Persona extends Base {
     @Builder. Default
     private List<Domicilio> domicilios = new ArrayList<>();
 
-    @OneToMany (mappedBy = "cliente", cascade = CascadeType.ALL)
-    @Builder. Default
+    @OneToMany (cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_persona")
     private List<Pedido> pedidos = new ArrayList<>();
 
 
@@ -58,4 +62,34 @@ public class Persona extends Base {
     @Builder.Default
     private List<NotaCredito> notasCredito = new ArrayList<>();
 
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority((rol.name())));
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

@@ -15,7 +15,10 @@ Para todas las entidades, se provee los siguientes métodos de acceso a la base 
 
 ## Querys Personalizadas
 
-### Usuario
+### Persona
+
+* GET `/getByEmail`: obtener a la persona según su email. Argumento:
+  * email
 
 * PUT `/cambiarContrasena`: cambiar la contraseña del usuario. Argumentos:
   * id: id del usuario
@@ -35,6 +38,11 @@ Para todas las entidades, se provee los siguientes métodos de acceso a la base 
   * fechaHasta
   * ordenarPor: "nombre" | "pedidos" | "monto"
 
+* PUT `/crearPedido`: crea un pedido para un usuario. Cuerpo:
+  * idPersona
+  * tipoEnvio
+  * formaPago
+  * idDomicilio
 
 ### Producto
 
@@ -59,6 +67,10 @@ Para todas las entidades, se provee los siguientes métodos de acceso a la base 
   * id: número contenido en la id
   * estados: arreglo con los posibles estados de los pedidos
 
+* PUT `/agregarDetalle`: añade o modifica un DetallePedido al Pedido. Cuerpo:
+  * idPedido
+  * idProducto
+  * cantidad: número a sumar a la cantidad ya existente en ese pedido del producto indicado.
 
 ### Insumo
 

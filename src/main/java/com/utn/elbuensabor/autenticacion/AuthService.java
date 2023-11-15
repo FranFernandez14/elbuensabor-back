@@ -34,15 +34,13 @@ public class AuthService {
     }
 
     public AuthResponse register(RegisterRequest request) {
-        ArrayList<Domicilio> domicilios = new ArrayList<>();
-        domicilios.add(request.getDomicilio());
 
         Persona usuario = Persona.builder()
                 .email(request.getEmail())
                 .password(passwordEncoder.encode( request.getPassword()))
                 .nombre(request.getNombre())
                 .apellido(request.getApellido())
-                .domicilios(domicilios)
+                .domicilios(request.getDomicilios())
                 .rol(Rol.CLIENTE)
                 .telefono(request.getTelefono())
                 .build();

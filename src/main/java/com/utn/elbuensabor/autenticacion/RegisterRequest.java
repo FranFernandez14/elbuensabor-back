@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.*;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -18,5 +20,5 @@ public class RegisterRequest {
     String telefono;
     String nombre;
     String apellido;
-    Domicilio domicilio;
+    List<Domicilio> domicilios = new ArrayList<>();
 }

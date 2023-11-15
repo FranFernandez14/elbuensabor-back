@@ -31,9 +31,6 @@ public class DetalleReceta extends Base {
     @Column(name = "costo", precision = 10, scale = 2)
     private BigDecimal costo;
 
-    @ManyToOne
-    @JoinColumn(name="id_receta")
-    @JsonIgnore
-    private Receta receta;
+
 
 }

@@ -19,16 +19,11 @@ import java.util.List;
 public class Receta extends Base {
 
     @NotNull
-    @OneToMany(mappedBy = "receta", cascade = CascadeType.ALL)
-    @Builder. Default
+    @OneToMany( cascade = CascadeType.ALL)
+    @Column(name= "id_receta")
     private List<DetalleReceta> detalles = new ArrayList();
 
-    /*@NotNull
-    @OneToOne
-    @JoinColumn(name = "id_producto")
-    private Producto producto;
 
-     */
 
     @NotNull
     @Column(name = "descripcion")

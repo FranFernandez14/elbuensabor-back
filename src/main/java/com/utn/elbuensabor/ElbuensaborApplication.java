@@ -159,6 +159,7 @@ public class ElbuensaborApplication {
 					.costo(500.00)
 					.denominacion("puré de papa")
 					.precioVenta(1234)
+					.urlImagen("https://images.aws.nestle.recipes/original/892d65cba81876ed7c340ae9ce7663d3_DCS_MARZO_INSTAGRAM-04.jpg")
 					.rubroProducto(rubroProducto1)
 					.receta(receta1)
 					.build();

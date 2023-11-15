@@ -1,6 +1,7 @@
 package com.utn.elbuensabor.autenticacion;
 
 import com.utn.elbuensabor.Jwt.JwtService;
+import com.utn.elbuensabor.entities.enums.Rol;
 import com.utn.elbuensabor.entities.usuarios.Domicilio;
 import com.utn.elbuensabor.entities.usuarios.Persona;
 import com.utn.elbuensabor.repositories.usuarios.PersonaRepository;
@@ -42,7 +43,7 @@ public class AuthService {
                 .nombre(request.getNombre())
                 .apellido(request.getApellido())
                 .domicilios(domicilios)
-                .rol(request.getRol())
+                .rol(Rol.CLIENTE)
                 .telefono(request.getTelefono())
                 .build();
 

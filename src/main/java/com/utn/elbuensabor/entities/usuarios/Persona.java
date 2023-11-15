@@ -49,8 +49,8 @@ public class Persona extends Base implements UserDetails {
     @Column(name = "telefono", nullable = false)
     private String telefono;
 
-    @OneToMany (mappedBy = "persona", cascade = CascadeType.ALL)
-    @Builder. Default
+    @Column(name = "id_persona", nullable = false)
+    @OneToMany (cascade = CascadeType.ALL)
     private List<Domicilio> domicilios = new ArrayList<>();
 
     @OneToMany (cascade = CascadeType.ALL)

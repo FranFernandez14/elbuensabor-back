@@ -232,7 +232,6 @@ public class ElbuensaborApplication {
 					.telefono(String.valueOf(21332))
 					.password("$2a$10$xvNOv08CGNYWUd59RLlwnuN.xF7SgBjsNxfrMCWh59ONjE.QfNx0K")
 					.build();
-			domicilio1.setPersona(persona1);
 
 			personaRepository.save(persona1);
 

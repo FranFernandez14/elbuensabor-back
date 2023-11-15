@@ -19,6 +19,4 @@ public class RegisterRequest {
     String nombre;
     String apellido;
     Domicilio domicilio;
-    Rol rol;
-
 }

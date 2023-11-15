@@ -150,8 +150,6 @@ public class ElbuensaborApplication {
 					.detalles(detallesReceta)
 					.build();
 
-			detalleReceta1.setReceta(receta1);
-			detalleReceta2.setReceta(receta1);
 
 
 
